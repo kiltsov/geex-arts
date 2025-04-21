@@ -59,7 +59,7 @@
 
 /********************** Services links *******************************/
 .services-link {
-    transition: opacity 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 /* Когда навели на враппер — все линки становятся полупрозрачными */
@@ -73,6 +73,7 @@
 }
 
 .services-link__number {
+    transition: all 0.5s ease;
     color: #000;
     background-color: transparent;
 }
