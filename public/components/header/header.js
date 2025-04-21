@@ -17,7 +17,7 @@ export function headerScrollAnimation() {
         if (currentScrollY > hideThreshold) {
           if (direction === 1) {
             // Скролл вниз
-            gsap.to(headerComponent.header, { yPercent: -100, duration: 0.5 });
+            gsap.to(headerComponent.header, { yPercent: -120, duration: 0.5 });
           } else {
             // Скролл вверх
             gsap.to(headerComponent.header, { yPercent: 0, duration: 0.5 });

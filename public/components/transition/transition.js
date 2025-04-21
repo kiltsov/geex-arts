@@ -10,10 +10,11 @@ export function pageTransitionAnimation() {
 
   let pageTransitionTimeline = gsap.timeline();
   pageTransitionTimeline.to(transitionComponent.transition_column, {
+    delay: 0.5,
     yPercent: -100,
     duration: 1,
   });
-  pageTransitionTimeline.set(transitionComponent.transition_wrap, { display: 'none' });
+  pageTransitionTimeline.set(transitionComponent.component, { display: 'none' });
 
   // link click
   $(`a:not(${transitionComponent.excluded_class})`).on('click', function (e) {
@@ -27,7 +28,7 @@ export function pageTransitionAnimation() {
       let pageTransitionTimeline = gsap.timeline({
         onComplete: () => (window.location.href = currentUrl),
       });
-      pageTransitionTimeline.set(transitionComponent.transition_wrap, { display: 'flex' });
+      pageTransitionTimeline.set(transitionComponent.component, { display: 'block' });
       pageTransitionTimeline.fromTo(transitionComponent.transition_column, { yPercent: 100 }, { yPercent: 0, stagger: 0.05 });
     }
   });
