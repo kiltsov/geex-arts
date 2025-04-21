@@ -3,6 +3,7 @@
   from { transform: translateX(0); }
   to { transform: translateX(calc(-100% - 1rem)); }
 }
+
 .social-model__marquee-content {
   animation: scroll 40s linear infinite;
 }
@@ -14,14 +15,14 @@
 
 /********************** Hero model *******************************/
 .hero-model__mask-3 {
-    animation: rotateClockwise 5s linear infinite;
+    animation: rotateClockwise 10s linear infinite;
   }
   
-  @keyframes rotateClockwise {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.works-more-button__mask {
+    animation: rotateClockwise 12s linear infinite;
+}
