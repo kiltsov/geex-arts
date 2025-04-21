@@ -7,22 +7,22 @@ pageTransitionAnimation();
 cursorViewCaseAnimation();
 
 const homePage = {
-    videos: document.querySelectorAll('.works-cards-video_hover'),
-    cards: document.querySelectorAll('.works-card'),
-  };
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    homePage.cards.forEach((card) => {
-      const video = card.querySelector('.works-cards-video_hover');
-      if (!video) return; // вдруг в карточке нет видео
-  
-      card.addEventListener('mouseenter', () => {
-        video.play();
-      });
-  
-      card.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0; // опционально: сбросить видео в начало при выходе
-      });
+  videos: document.querySelectorAll('.works-cards-video'),
+  cards: document.querySelectorAll('.works-card'),
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  homePage.cards.forEach((card) => {
+    const video = card.querySelector('.works-cards-video');
+    if (!video) return; // вдруг в карточке нет видео
+
+    card.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0; // опционально: сбросить видео в начало при выходе
     });
   });
+});
