@@ -7,13 +7,13 @@ pageTransitionAnimation();
 cursorViewCaseAnimation();
 
 const homePage = {
-  videos: document.querySelectorAll('.works-cards-video'),
+  videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
 };
 
 document.addEventListener('DOMContentLoaded', function () {
   homePage.cards.forEach((card) => {
-    const video = card.querySelector('.works-cards-video'); 
+    const video = card.querySelector('.work-card-video_hover');
     if (!video) return; // вдруг в карточке нет видео
 
     card.addEventListener('mouseenter', () => {
