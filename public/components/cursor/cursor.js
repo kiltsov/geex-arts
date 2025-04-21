@@ -18,8 +18,11 @@ export function cursorViewCaseAnimation() {
   });
 
   cursorWrapper.addEventListener('mousemove', (e) => {
-    xTo(e.x);
-    yTo(e.y);
+    const rect = cursorWrapper.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    xTo(x);
+    yTo(y);
   });
 
   // Плавное появление курсора при входе в враппер
