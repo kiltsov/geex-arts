@@ -11,3 +11,17 @@
 .cta-model__marquee-content {
   animation: scroll 20s linear infinite;
 }
+
+/********************** Hero model *******************************/
+.hero-model__mask-3 {
+    animation: rotateClockwise 5s linear infinite;
+  }
+  
+  @keyframes rotateClockwise {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
