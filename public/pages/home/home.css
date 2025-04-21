@@ -1,26 +1,36 @@
 /********************** Social model ***********************/
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% - 1rem)); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
 }
 
 .social-model__marquee-content {
-  animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
 }
 
 /********************** CTA *******************************/
 .cta-model__marquee-content {
-  animation: scroll 20s linear infinite;
+    animation: scroll 20s linear infinite;
 }
 
 /********************** Hero model *******************************/
 .hero-model__mask-3 {
     animation: rotateClockwise 10s linear infinite;
-  }
-  
+}
+
 @keyframes rotateClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .works-more-button__mask {
@@ -33,22 +43,29 @@
 
 .bild-model__circle {
     animation: breathe 3s ease-in-out infinite;
-  }
-  
-  @keyframes breathe {
-    0%, 100% {
-      transform: scale(1);
+}
+
+@keyframes breathe {
+    0%,
+    100% {
+        transform: scale(1);
     }
+
     50% {
-      transform: scale(1.05);
+        transform: scale(1.05);
     }
-  }
+}
 
 /********************** Services links *******************************/
-  .services-link__wrapper:hover .services-link {
+.services-link {
+    transition: opacity 0.3s ease;
+  }
+/* Когда навели на враппер — все линки становятся полупрозрачными */
+.services-link__wrapper:hover .services-link {
     opacity: 0.5;
   }
   
-  .services-link:hover {
+  /* Но тот линк, на который навели, должен стать снова полностью видимым */
+  .services-link__wrapper:hover .services-link:hover {
     opacity: 1;
   }
