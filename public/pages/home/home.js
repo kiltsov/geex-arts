@@ -11,18 +11,16 @@ const homePage = {
   cards: document.querySelectorAll('.work-card'),
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  homePage.cards.forEach((card) => {
-    const video = card.querySelector('.work-card-video_hover');
-    if (!video) return; // вдруг в карточке нет видео
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.work-card-video_hover');
 
-    card.addEventListener('mouseenter', () => {
-      video.play();
-    });
+    videos.forEach(video => {
+      video.addEventListener('mouseenter', () => {
+        video.play();
+      });
 
-    card.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0; // опционально: сбросить видео в начало при выходе
+      video.addEventListener('mouseleave', () => {
+        video.pause();
+      });
     });
   });
-});
