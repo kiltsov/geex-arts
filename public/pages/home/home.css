@@ -46,6 +46,7 @@
 }
 
 @keyframes breathe {
+
     0%,
     100% {
         transform: scale(1);
@@ -59,13 +60,24 @@
 /********************** Services links *******************************/
 .services-link {
     transition: opacity 0.3s ease;
-  }
+}
+
 /* Когда навели на враппер — все линки становятся полупрозрачными */
 .services-link__wrapper:hover .services-link {
-    opacity: 0.5;
-  }
-  
-  /* Но тот линк, на который навели, должен стать снова полностью видимым */
-  .services-link__wrapper:hover .services-link:hover {
+    opacity: 0.2;
+}
+
+/* Но тот линк, на который навели, должен стать снова полностью видимым */
+.services-link__wrapper:hover .services-link:hover {
     opacity: 1;
-  }
+}
+
+.services-link__number {
+    color: #000;
+    background-color: transparent;
+}
+
+.services-link:hover .services-link__number {
+    color: #fff;
+    background-color: #000;
+}
