@@ -8,12 +8,12 @@ cursorViewCaseAnimation();
 
 const homePage = {
   videos: document.querySelectorAll('.works-cards-video'),
-  cards: document.querySelectorAll('.works-card'),
+  cards: document.querySelectorAll('.work-card'),
 };
 
 document.addEventListener('DOMContentLoaded', function () {
   homePage.cards.forEach((card) => {
-    const video = card.querySelector('.works-cards-video');
+    const video = card.querySelector('.works-cards-video'); 
     if (!video) return; // вдруг в карточке нет видео
 
     card.addEventListener('mouseenter', () => {
