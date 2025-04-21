@@ -6,10 +6,12 @@ headerScrollAnimation();
 pageTransitionAnimation();
 cursorViewCaseAnimation();
 
-document.addEventListener('DOMContentLoaded', function () {
-  const videos = document.querySelectorAll('.works-cards-video_hover');
+const homePage = {
+  videos: document.querySelectorAll('.works-cards-video_hover'),
+};
 
-  videos.forEach((video) => {
+document.addEventListener('DOMContentLoaded', function () {
+  homePage.videos.forEach((video) => {
     video.addEventListener('mouseenter', () => {
       video.play();
     });
