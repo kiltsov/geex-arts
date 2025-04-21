@@ -45,7 +45,7 @@
   }
 
 /********************** Services links *******************************/
-  .services-links-wrapper:hover .services-link {
+  .services-link__wrapper:hover .services-link {
     opacity: 0.5;
   }
   
