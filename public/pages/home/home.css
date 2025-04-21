@@ -82,3 +82,41 @@
     color: #fff;
     background-color: #000;
 }
+
+/********************** Services video *******************************/
+.services-video__cover {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+  }
+  
+  #agency-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    position: relative;
+  }
+  
+  /* Изначально видео видно, но кавер его закрывает */
+  .services-video__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* При наведении убираем кавер */
+  .services-video__wrapper:hover .services-video__cover {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* (опционально) При ховере можно сделать видео чуть ярче или активнее */
+  .services-video__wrapper:hover #agency-video {
+    opacity: 1;
+  }
