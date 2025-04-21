@@ -16,3 +16,9 @@ npm-debug.log
 
 # Webflow exports (если вдруг качаешь)
 *.webflow.zip
+
+# Demo files
+demo
+demo/demo.css
+fonts/
+assets/
