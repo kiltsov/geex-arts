@@ -26,3 +26,7 @@
 .works-more-button__mask {
     animation: rotateClockwise 12s linear infinite;
 }
+
+.bild-model__cover {
+    animation: rotateClockwise 12s linear infinite;
+}
