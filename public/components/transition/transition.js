@@ -1,16 +1,17 @@
 export const transitionComponent = {
-  transition_column: '.transition_column',
-  transition_wrap: '.transition_wrap',
-  excluded_class: '.excluded-class',
-}
+  component: document.getElementById('transitionComponent'),
+  transition_column: document.querySelector('.transition_column'),
+  transition_wrap: document.querySelector('.transition_wrap'),
+  excluded_class: document.querySelector('.excluded-class'),
+};
 
+export function pageTransitionAnimation() {
+  if (!transitionComponent.component) return;
 
-export function pageTransition() {
-  // page load
   let pageTransitionTimeline = gsap.timeline();
   pageTransitionTimeline.to(transitionComponent.transition_column, {
     yPercent: -100,
-    stagger: 0.05,
+    duration: 1,
   });
   pageTransitionTimeline.set(transitionComponent.transition_wrap, { display: 'none' });
 
@@ -23,7 +24,6 @@ export function pageTransition() {
       $(this).attr('target') !== '_blank'
     ) {
       e.preventDefault();
-      // lenis.stop();
       let pageTransitionTimeline = gsap.timeline({
         onComplete: () => (window.location.href = currentUrl),
       });

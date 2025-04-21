@@ -1,9 +1,10 @@
 export const headerComponent = {
-  header: '.header',
+  header: document.getElementById('header'),
 };
 
 export function headerScrollAnimation() {
-  //
+  if (!headerComponent.header) return;
+
   let lastScrollY = window.scrollY;
   let hideThreshold = window.innerHeight * 0.05; // 5% от высоты экрана
 
