@@ -4,6 +4,10 @@ import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
 const homePage = {
+  heroModel: {
+    grid: document.querySelector('.model-grid'),
+    circles: document.querySelectorAll('.hero-model-cirle'),
+  },
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
 };
@@ -22,8 +26,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+function homeHeroModelAnimation() {
+    const { grid, circles } = homePage.heroModel;
+
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    gsap.set(grid, {
+        opacity: 0,
+        yPercent: 100,
+    });
+
+    gsap.set(circles, {
+        opacity: 0,
+        yPercent: 100,
+    });
+
+    tl.to(grid, {
+        opacity: 1,
+        yPercent: 0,
+        duration: 1,
+    });
+
+    tl.to(circles, {
+        opacity: 1,
+        yPercent: 0,
+        duration: 1,
+        stagger: 0.05,
+    });
+};
+
 pageTransitionAnimation(() => {
     textFadeIntoAnimation();
+    homeHeroModelAnimation()
 });
 
 headerScrollAnimation();
