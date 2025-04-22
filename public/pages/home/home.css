@@ -4,6 +4,11 @@
     y: '100%',
 }
 
+.model-pin {
+    opacity: 0;
+    y: '100%',
+}
+
 /********************** Social model ***********************/
 @keyframes scroll {
     from {

@@ -7,6 +7,7 @@ const homePage = {
   heroModel: {
     grid: document.querySelector('.model-grid'),
     circles: document.querySelectorAll('.hero-model-cirle'),
+    pins: document.querySelectorAll('.model-pin'),
   },
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function homeHeroModelAnimation() {
-    const { grid, circles } = homePage.heroModel;
+    const { grid, circles, pins } = homePage.heroModel;
 
     const tl = gsap.timeline({ delay: 0.3 });
 
@@ -47,7 +48,7 @@ function homeHeroModelAnimation() {
         duration: 1,
     });
 
-    tl.to(circles, {
+    tl.to(pins, {
         opacity: 1,
         yPercent: 0,
         duration: 1,
