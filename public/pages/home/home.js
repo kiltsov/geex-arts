@@ -1,10 +1,10 @@
 import { headerScrollAnimation } from '../../components/header/header.js';
 import { pageTransitionAnimation } from '../../components/transition/transition.js';
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
-import { textAnimationFadeInto } from '../../components/text-animation/textAnimation.js';
+import { textAnimationFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
-import textAnimationFadeInto from '../../components/text-animation/textAnimation.js';
-const { elementFadeInto } = textAnimationFadeInto;
+import { textComponent } from '../../components/text-animation/textAnimation.js';
+const { elementFadeInto } = textComponent;
 
 
 
@@ -14,10 +14,10 @@ const homePage = {
 };
 
 gsap.set(elementFadeInto, {
-  opacity: 0,
-  filter: 'blur(16px)',
-  y: 20,
-});
+    opacity: 0,
+    filter: 'blur(16px)',
+    y: 20,
+  });
 
 document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('.work-card-video_hover');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 pageTransitionAnimation(() => {
-  textAnimationFadeInto();
+    textAnimationFadeIntoAnimation();
 });
 
 headerScrollAnimation();
