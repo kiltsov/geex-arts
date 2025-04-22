@@ -1,5 +1,8 @@
 export const headerComponent = {
   header: document.getElementById('header'),
+  headerBrand: document.querySelector('.header-brand'),
+  navListItems: document.querySelectorAll('.nav-list__item'),
+  buttonHeader: document.querySelector('.button-header'),
 };
 
 export function headerScrollAnimation() {
@@ -31,12 +34,10 @@ export function headerScrollAnimation() {
 export function headerMoveIntoViewAnimation() {
   if (!headerComponent.header) return;
 
-  // gsap.set(headerComponent.header, {
-  //   yPercent: -100,
-  // });
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  gsap.to(headerComponent.header, {
-    yPercent: 0,
-    duration: 2,
-  });
+  tl.to(headerComponent.header, { yPercent: 0, duration: 0.8 })
+    .to(headerComponent.headerBrand, { yPercent: 0, duration: 0.6 }, "-=0.5") // стартует чуть раньше
+    .to(headerComponent.navListItems, { yPercent: 0, duration: 0.6, stagger: 0.05 }, "-=0.4")
+    .to(headerComponent.buttonHeader, { yPercent: 0, duration: 0.6 }, "-=0.4");
 }
