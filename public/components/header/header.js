@@ -34,10 +34,9 @@ export function headerScrollAnimation() {
 export function headerMoveIntoViewAnimation() {
   if (!headerComponent.header) return;
 
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  const tl = gsap.timeline({ defaults: { ease: "power3.out", delay: 0.3 } });
 
-  tl.to(headerComponent.header, { yPercent: 0, duration: 0.8 })
-    .to(headerComponent.headerBrand, { yPercent: 0, duration: 0.6 }, "-=0.5") // стартует чуть раньше
+  tl.to(headerComponent.headerBrand, { yPercent: 0, duration: 0.6 }, "-=0.5") // стартует чуть раньше
     .to(headerComponent.navListItems, { yPercent: 0, duration: 0.6, stagger: 0.05 }, "-=0.4")
     .to(headerComponent.buttonHeader, { yPercent: 0, duration: 0.6 }, "-=0.4");
 }

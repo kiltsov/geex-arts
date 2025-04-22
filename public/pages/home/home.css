@@ -11,21 +11,17 @@
 
 
 /********************** Header *******************************/
-.header {
+.header-brand {
     transform: translateY(-100%);
-  }
-  
-  .header-brand {
+}
+
+.nav-list-item {
     transform: translateY(-100%);
-  }
-  
-  .nav-list-item {
+}
+
+.button-header {
     transform: translateY(-100%);
-  }
-  
-  .button-header {
-    transform: translateY(-100%);
-  }
+}
 
 /********************** Social model ***********************/
 @keyframes scroll {
