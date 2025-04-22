@@ -8,13 +8,20 @@ export const transitionComponent = {
 export function pageTransitionAnimation(callback) {
   if (!transitionComponent.component) return;
 
-  let pageTransitionTimeline = gsap.timeline({ onComplete: () => callback?.() });
+  let pageTransitionTimeline = gsap.timeline({
+    onComplete: () => {
+      if (typeof callback === 'function') {
+        callback(); // Запускаем пользовательский код после перехода
+      }
+    }
+  });
+
   pageTransitionTimeline.to(transitionComponent.transition_column, {
     delay: 0.5,
     yPercent: -100,
     duration: 1,
   });
-  
+
   pageTransitionTimeline.set(transitionComponent.component, { display: 'none' });
 
   // link click
@@ -33,6 +40,7 @@ export function pageTransitionAnimation(callback) {
       pageTransitionTimeline.fromTo(transitionComponent.transition_column, { yPercent: 100 }, { yPercent: 0, stagger: 0.05 });
     }
   });
+
   // On Back Button Tap
   window.onpageshow = function (event) {
     if (event.persisted) window.location.reload();
