@@ -3,10 +3,21 @@ import { pageTransitionAnimation } from '../../components/transition/transition.
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textAnimationFadeInto } from '../../components/text-animation/textAnimation.js';
 
+import textAnimationFadeInto from '../../components/text-animation/textAnimation.js';
+const { elementFadeInto } = textAnimationFadeInto;
+
+
+
 const homePage = {
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
 };
+
+gsap.set(elementFadeInto, {
+  opacity: 0,
+  filter: 'blur(16px)',
+  y: 20,
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('.work-card-video_hover');
