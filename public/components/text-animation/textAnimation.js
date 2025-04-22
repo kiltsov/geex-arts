@@ -7,7 +7,7 @@ export function textFadeIntoAnimation() {
   
     textComponent.elementFadeInto.forEach((el) => {
       // Сначала скрываем элемент
-      el.style.visibility = 'hidden';
+    //   el.style.visibility = 'hidden';
   
       // Разбиваем текст на буквы
       const split = new SplitText(el, { type: 'chars', charsClass: 'split-char' });
@@ -19,8 +19,8 @@ export function textFadeIntoAnimation() {
         y: 20,
       });
   
-      // Показываем родителя после подготовки
-      el.style.visibility = 'visible';
+    //   // Показываем родителя после подготовки
+    //   el.style.visibility = 'visible';
   
       // Сразу запускаем анимацию появления букв
       const tl = gsap.timeline();
