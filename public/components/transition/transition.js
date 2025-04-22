@@ -5,15 +5,16 @@ export const transitionComponent = {
   excluded_class: document.querySelector('.excluded-class'),
 };
 
-export function pageTransitionAnimation() {
+export function pageTransitionAnimation(callback) {
   if (!transitionComponent.component) return;
 
-  let pageTransitionTimeline = gsap.timeline();
+  let pageTransitionTimeline = gsap.timeline({ onComplete: () => callback?.() });
   pageTransitionTimeline.to(transitionComponent.transition_column, {
     delay: 0.5,
     yPercent: -100,
     duration: 1,
   });
+  
   pageTransitionTimeline.set(transitionComponent.component, { display: 'none' });
 
   // link click
