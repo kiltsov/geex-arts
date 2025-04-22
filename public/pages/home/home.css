@@ -143,10 +143,10 @@
 /********************** Hero model *******************************/
 .hero-model__grid {
     opacity: 0;
-    yPercent: 100,
+    y: '100%',
 }
 
 .hero-model__circle {
     opacity: 0;
-    yPercent: 100,
+    y: '100%',
 }
