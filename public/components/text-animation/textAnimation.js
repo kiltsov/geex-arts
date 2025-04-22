@@ -2,7 +2,7 @@ export const textComponent = {
   elementFadeInto: document.querySelectorAll('[split-text="effect-fade-into"]'),
 };
 
-export function textAnimationFadeInto() {
+export function textFadeIntoAnimation() {
   if (!textComponent.elementFadeInto.length) return;
 
   textComponent.elementFadeInto.forEach((el) => {

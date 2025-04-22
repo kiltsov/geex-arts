@@ -1,7 +1,7 @@
 import { headerScrollAnimation } from '../../components/header/header.js';
 import { pageTransitionAnimation } from '../../components/transition/transition.js';
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
-import { textAnimationFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
+import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
 import { textComponent } from '../../components/text-animation/textAnimation.js';
 const { elementFadeInto } = textComponent;
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 pageTransitionAnimation(() => {
-    textAnimationFadeIntoAnimation();
+    textFadeIntoAnimation();
 });
 
 headerScrollAnimation();
