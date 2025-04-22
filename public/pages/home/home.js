@@ -28,33 +28,38 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function homeHeroModelAnimation() {
-    const { circles, pin } = homePage.heroModel;
+  const { circles, pin } = homePage.heroModel;
 
-    const tl = gsap.timeline({ delay: 0.3 });
+  const tl = gsap.timeline({ delay: 0.3 });
 
-    gsap.set(circles, {
-        opacity: 0,
-        yPercent: 100,
-    });
+  gsap.set(circles, {
+    opacity: 0,
+    yPercent: 100,
+  });
 
-    tl.to(circles, {
-        opacity: 1,
-        yPercent: 0,
-        duration: 1,
-        stagger: 0.05,
-    });
+  gsap.set(pin, {
+    opacity: 0,
+    yPercent: 100,
+  });
 
-    tl.to(pin, {
-        opacity: 1,
-        yPercent: 0,
-        duration: 1,
-        stagger: 0.01,
-    });
-};
+  tl.to(circles, {
+    opacity: 1,
+    yPercent: 0,
+    duration: 1,
+    stagger: 0.05,
+  });
+
+  tl.to(pin, {
+    opacity: 1,
+    yPercent: 0,
+    duration: 1,
+    stagger: 0.01,
+  });
+}
 
 pageTransitionAnimation(() => {
-    textFadeIntoAnimation();
-    homeHeroModelAnimation()
+  textFadeIntoAnimation();
+  homeHeroModelAnimation();
 });
 
 headerScrollAnimation();
