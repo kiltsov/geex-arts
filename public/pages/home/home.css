@@ -107,9 +107,9 @@
     background-repeat: no-repeat;
     transition: opacity 0.5s ease;
     z-index: 2;
-  }
-  
-  #agency-video {
+}
+
+#agency-video {
     display: block;
     width: 100%;
     height: 100%;
@@ -117,39 +117,73 @@
     transition: opacity 0.5s ease;
     z-index: 1;
     position: relative;
-  }
-  
-  /* Изначально видео видно, но кавер его закрывает */
-  .services-video__wrapper {
+}
+
+/* Изначально видео видно, но кавер его закрывает */
+.services-video__wrapper {
     position: relative;
     overflow: hidden;
-  }
-  
-  /* При наведении убираем кавер */
-  .services-video__wrapper:hover .services-video__cover {
+}
+
+/* При наведении убираем кавер */
+.services-video__wrapper:hover .services-video__cover {
     opacity: 0;
     pointer-events: none;
-  }
-  
-  /* (опционально) При ховере можно сделать видео чуть ярче или активнее */
-  .services-video__wrapper:hover #agency-video {
+}
+
+/* (опционально) При ховере можно сделать видео чуть ярче или активнее */
+.services-video__wrapper:hover #agency-video {
     opacity: 1;
-  }
+}
 
 
 /********************** Works Grid *******************************/
 @media only screen and (min-width: 992px) {
-.works__list .works__item:nth-child(6n+1) {width: 28.1875rem;}
-.works__list .works__item:nth-child(6n+2) {width: 50.25rem; }
-.works__list .works__item:nth-child(6n+3) {width: 28.125rem;}
-.works__list .works__item:nth-child(6n+4) {width: 28.125rem;}
-.works__list .works__item:nth-child(6n+5) {width: 28.125rem;}
-.works__list .works__item:nth-child(6n+6) {width: 64.8125rem;}
+    .works__list .works__item:nth-child(6n+1) {
+        width: 28.1875rem;
+    }
 
-.works__item:nth-child(6n+1) .work-card__video { height: 21.125rem;}
-.works__item:nth-child(6n+2) .work-card__video { height: 31.25rem;}
-.works__item:nth-child(6n+3) .work-card__video { height: 17.5rem; }
-.works__item:nth-child(6n+4) .work-card__video { height: 17.5rem; }
-.works__item:nth-child(6n+5) .work-card__video { height: 17.5rem; }
-.works__item:nth-child(6n+6) .work-card__video { height: 40.5rem; }
+    .works__list .works__item:nth-child(6n+2) {
+        width: 50.25rem;
+    }
+
+    .works__list .works__item:nth-child(6n+3) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+4) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+5) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+6) {
+        width: 64.8125rem;
+    }
+
+    .works__item:nth-child(6n+1) .work-card__video {
+        height: 21.125rem;
+    }
+
+    .works__item:nth-child(6n+2) .work-card__video {
+        height: 31.25rem;
+    }
+
+    .works__item:nth-child(6n+3) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+4) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+5) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+6) .work-card__video {
+        height: 40.5rem;
+    }
 }

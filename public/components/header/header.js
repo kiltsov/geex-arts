@@ -37,6 +37,6 @@ export function headerMoveIntoViewAnimation() {
 
   gsap.to(headerComponent.header, {
     yPercent: 0,
-    duration: 1,
+    duration: 2,
   });
 }
