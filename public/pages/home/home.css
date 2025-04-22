@@ -11,9 +11,21 @@
 
 
 /********************** Header *******************************/
-#header {
-    y: '-100%',
-}
+.header {
+    transform: translateY(-100%);
+  }
+  
+  .header-brand {
+    transform: translateY(-100%);
+  }
+  
+  .nav-list-item {
+    transform: translateY(-100%);
+  }
+  
+  .button-header {
+    transform: translateY(-100%);
+  }
 
 /********************** Social model ***********************/
 @keyframes scroll {
