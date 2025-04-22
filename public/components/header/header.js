@@ -36,7 +36,7 @@ export function headerMoveIntoViewAnimation() {
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out", delay: 0.3 } });
 
-  tl.to(headerComponent.headerBrand, { yPercent: 0, duration: 0.6 }, "-=0.5") // стартует чуть раньше
-    .to(headerComponent.navListItems, { yPercent: 0, duration: 0.6, stagger: 0.05 }, "-=0.4")
-    .to(headerComponent.buttonHeader, { yPercent: 0, duration: 0.6 }, "-=0.4");
+  tl.to(headerComponent.headerBrand, { y: '0rem', duration: 0.6 }, "-=0.5") // стартует чуть раньше
+    .to(headerComponent.navListItems, { y: '0rem', duration: 0.6, stagger: 0.05 }, "-=0.4")
+    .to(headerComponent.buttonHeader, { y: '0rem', duration: 0.6 }, "-=0.4");
 }

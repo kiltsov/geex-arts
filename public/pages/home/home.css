@@ -12,15 +12,15 @@
 
 /********************** Header *******************************/
 .header-brand {
-    transform: translateY(-100%);
+    transform: translateY(-20rem);
 }
 
 .nav-list__item {
-    transform: translateY(-100%);
+    transform: translateY(-20rem);
 }
 
 .button-header {
-    transform: translateY(-100%);
+    transform: translateY(-20rem);
 }
 
 /********************** Social model ***********************/
