@@ -62,7 +62,7 @@ pageTransitionAnimation(() => {
   textFadeIntoAnimation();
   homeHeroModelAnimation();
   headerMoveIntoViewAnimation();
+  headerScrollAnimation();
 });
 
-headerScrollAnimation();
 cursorViewCaseAnimation();
