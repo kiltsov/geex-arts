@@ -3,10 +3,6 @@ import { pageTransitionAnimation } from '../../components/transition/transition.
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textAnimationFadeInto } from '../../components/text-animation/textAnimation.js';
 
-headerScrollAnimation();
-pageTransitionAnimation();
-cursorViewCaseAnimation();
-
 const homePage = {
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
@@ -26,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 pageTransitionAnimation(() => {
   textAnimationFadeInto();
 });
+
+headerScrollAnimation();
+cursorViewCaseAnimation();
