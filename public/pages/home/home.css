@@ -138,3 +138,15 @@
 .works__item:nth-child(6n+5) .work-card__video { height: 17.5rem; }
 .works__item:nth-child(6n+6) .work-card__video { height: 40.5rem; }
 }
+
+
+/********************** Hero model *******************************/
+.hero-model__grid {
+    opacity: 0;
+    yPercent: 100,
+}
+
+.hero-model__circle {
+    opacity: 0;
+    yPercent: 100,
+}
