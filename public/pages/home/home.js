@@ -14,20 +14,6 @@ const homePage = {
   cards: document.querySelectorAll('.work-card'),
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  const videos = document.querySelectorAll('.work-card-video_hover');
-
-  videos.forEach((video) => {
-    video.addEventListener('mouseenter', () => {
-      video.play();
-    });
-
-    video.addEventListener('mouseleave', () => {
-      video.pause();
-    });
-  });
-});
-
 function homeHeroModelAnimation() {
   const { circles, pin } = homePage.heroModel;
 
@@ -57,6 +43,20 @@ function homeHeroModelAnimation() {
     stagger: 0.01,
   });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const videos = document.querySelectorAll('.work-card-video_hover');
+
+  videos.forEach((video) => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+    });
+  });
+});
 
 pageTransitionAnimation(() => {
   textFadeIntoAnimation();
