@@ -27,3 +27,16 @@ export function headerScrollAnimation() {
     },
   });
 }
+
+export function headerMoveIntoViewAnimation() {
+  if (!headerComponent.header) return;
+
+  gsap.set(headerComponent.header, {
+    yPercent: -100,
+  });
+
+  gsap.to(headerComponent.header, {
+    yPercent: 0,
+    duration: 1,
+  });
+}

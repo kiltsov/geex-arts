@@ -1,4 +1,5 @@
 import { headerScrollAnimation } from '../../components/header/header.js';
+import { headerMoveIntoViewAnimation } from '../../components/header/header.js';
 import { pageTransitionAnimation } from '../../components/transition/transition.js';
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
@@ -60,6 +61,7 @@ function homeHeroModelAnimation() {
 pageTransitionAnimation(() => {
   textFadeIntoAnimation();
   homeHeroModelAnimation();
+  headerMoveIntoViewAnimation();
 });
 
 headerScrollAnimation();
