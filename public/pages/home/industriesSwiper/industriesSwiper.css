@@ -6,3 +6,12 @@
 .industry-slider__buttons:hover .industry-slider__button-track {
     opacity: 1;
 }
+
+.industry-slider__button .icon-embed {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.industry-slider__button:hover .icon-embed {
+    transform: scale(1.1);
+}

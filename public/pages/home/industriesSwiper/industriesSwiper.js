@@ -13,7 +13,7 @@ const buttons = swiperComponent.buttons;
 
 function swiperIndustriesInit() {
   const swiperIndustries = new Swiper(swiperComponent.swiper, {
-    speed: 400,
+    speed: 700,
     spaceBetween: 0,
     slidesPerView: 1,
     loop: true,
