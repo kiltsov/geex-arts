@@ -24,7 +24,7 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
     speed: 700,
     spaceBetween: 12,
     slidesPerView,
-    loop: false,
+    loop: true,
     navigation: {
       nextEl,
       prevEl,
