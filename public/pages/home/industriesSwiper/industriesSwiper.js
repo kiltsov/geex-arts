@@ -61,7 +61,7 @@ function initIndustrySlider(sliderRoot, config = {}) {
 }
 
 function swiperIndustriesInit() {
-  const sliders = document.querySelectorAll('.swiper.swiper-industry`');
+  const sliders = document.querySelectorAll('.swiper.swiper-industry');
 
   sliders.forEach((slider) => {
     const sliderId = slider.id;
