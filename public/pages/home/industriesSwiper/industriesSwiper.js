@@ -1,4 +1,12 @@
-function initIndustrySlider(sliderRoot) {
+const industrySliderConfig = {
+  '#sliderIndustries1': { slidesPerView: 1 },
+  '#sliderIndustries2': { slidesPerView: 2 },
+  '#sliderIndustries3': { slidesPerView: 3 },
+  '#sliderIndustries4': { slidesPerView: 4 },
+  '#sliderIndustries5': { slidesPerView: 5 },
+};
+
+function initIndustrySlider(sliderRoot, { slidesPerView = 1 }) {
   const swiperEl = sliderRoot.querySelector('.swiper');
   const buttonNext = sliderRoot.querySelector('[data-next]');
   const buttonPrev = sliderRoot.querySelector('[data-prev]');
@@ -6,11 +14,10 @@ function initIndustrySlider(sliderRoot) {
   const buttonTrack = sliderRoot.querySelector('.industry-slider__button-track');
   const buttons = sliderRoot.querySelectorAll('.industry-slider__button');
 
-  // Swiper
   new Swiper(swiperEl, {
     speed: 700,
     spaceBetween: 0,
-    slidesPerView: 1,
+    slidesPerView,
     loop: true,
     navigation: {
       nextEl: buttonNext,
@@ -53,7 +60,11 @@ function initIndustrySlider(sliderRoot) {
 
 function swiperIndustriesInit() {
   const sliders = document.querySelectorAll('.industry-slider');
-  sliders.forEach(initIndustrySlider);
+  sliders.forEach((slider) => {
+    const id = `#${slider.id}`;
+    const config = industrySliderConfig[id] || { slidesPerView: 1 };
+    initIndustrySlider(slider, config);
+  });
 }
 
 export { swiperIndustriesInit };
