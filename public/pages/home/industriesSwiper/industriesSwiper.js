@@ -26,14 +26,15 @@ function swiperIndustriesInit() {
   buttonContainer.addEventListener('mousemove', (e) => {
     const rect = buttonContainer.getBoundingClientRect();
     const offsetY = e.clientY - rect.top;
-    const percentY = offsetY / rect.height;
-
+  
+    // Центрируем трек по курсору
     const trackHeight = buttonTrack.offsetHeight;
     const containerHeight = rect.height;
-
-    const maxTranslate = containerHeight - trackHeight;
-    const translateY = maxTranslate * percentY;
-
+  
+    // Гарантируем, что трек не выйдет за пределы контейнера
+    let translateY = offsetY - trackHeight / 2;
+    translateY = Math.max(0, Math.min(translateY, containerHeight - trackHeight));
+  
     buttonTrack.style.transform = `translateY(${translateY}px)`;
   });
 
