@@ -1,28 +1,24 @@
+const industrySliderViewMap = [1, 2, 3, 4, 1]; // По порядку слайдеров
 function initIndustrySlider(sliderRoot, slidesPerView = 1) {
     const swiperEl = sliderRoot.querySelector('.swiper');
-    const buttonNext = sliderRoot.querySelector('[data-next]');
-    const buttonPrev = sliderRoot.querySelector('[data-prev]');
     const buttonContainer = sliderRoot.querySelector('.industry-slider__buttons');
     const buttonTrack = sliderRoot.querySelector('.industry-slider__button-track');
     const buttons = sliderRoot.querySelectorAll('.industry-slider__button');
   
-    if (!swiperEl) {
-      console.warn('Swiper not found in:', sliderRoot);
-      return;
-    }
+    if (!swiperEl) return;
   
-    new Swiper(swiperEl, {
+    const swiper = new Swiper(swiperEl, {
       speed: 700,
       spaceBetween: 0,
-      slidesPerView: slidesPerView,
-      loop: true,
+      slidesPerView,
+      loop: false,
       navigation: {
-        nextEl: buttonNext,
-        prevEl: buttonPrev,
+        nextEl: sliderRoot.querySelector('[data-next]'),
+        prevEl: sliderRoot.querySelector('[data-prev]'),
       },
     });
   
-    // Hover движения кнопок
+    // Безопасно навешиваем hover-анимацию
     if (buttonContainer && buttonTrack) {
       buttonContainer.addEventListener('mousemove', (e) => {
         const rect = buttonContainer.getBoundingClientRect();
@@ -52,15 +48,14 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
       });
     }
   }
-  
+
   function swiperIndustriesInit() {
     const sliders = document.querySelectorAll('.industry-slider');
   
     sliders.forEach((slider, index) => {
-      // Примерная логика: 1, 2, 3, 4, 5 — по порядку
-      const slidesPerView = [1, 2, 3, 4, 5][index] || 1;
+      const slidesPerView = industrySliderViewMap[index] || 1;
       initIndustrySlider(slider, slidesPerView);
     });
   }
-  
-  export { swiperIndustriesInit };
+
+export { swiperIndustriesInit };
