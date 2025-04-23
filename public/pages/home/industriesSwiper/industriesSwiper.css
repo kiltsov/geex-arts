@@ -6,3 +6,7 @@
 .industry-slider__buttons:hover .industry-slider__button-track {
     opacity: 1;
 }
+
+.industry-slider:hover .industry-slider__button-track {
+    opacity: 1;
+}
