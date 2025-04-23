@@ -2,7 +2,14 @@ const swiperComponent = {
   swiper: document.getElementById('swiperIndustries'),
   buttonPrev: document.getElementById('industrySliderButtonPrev'),
   buttonNext: document.getElementById('industrySliderButtonNext'),
+  buttonContainer: document.querySelector('.industry-slider__buttons'),
+  buttonTrack: document.querySelector('.industry-slider__button-track'),
+  buttons: document.querySelectorAll('.industry-slider__button'),
 };
+
+const buttonContainer = swiperComponent.buttonContainer;
+const buttonTrack = swiperComponent.buttonTrack;
+const buttons = swiperComponent.buttons;
 
 function swiperIndustriesInit() {
   const swiperIndustries = new Swiper(swiperComponent.swiper, {
@@ -14,6 +21,37 @@ function swiperIndustriesInit() {
       nextEl: swiperComponent.buttonNext,
       prevEl: swiperComponent.buttonPrev,
     },
+  });
+
+  buttonContainer.addEventListener('mousemove', (e) => {
+    const rect = buttonContainer.getBoundingClientRect();
+    const offsetY = e.clientY - rect.top;
+    const percentY = offsetY / rect.height;
+
+    const trackHeight = buttonTrack.offsetHeight;
+    const containerHeight = rect.height;
+
+    const maxTranslate = containerHeight - trackHeight;
+    const translateY = maxTranslate * percentY;
+
+    buttonTrack.style.transform = `translateY(${translateY}px)`;
+  });
+
+  buttonContainer.addEventListener('mouseenter', () => {
+    gsap.fromTo(
+      buttons,
+      {
+        y: (i) => (i % 2 === 0 ? -50 : 50), // разные направления
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out',
+      }
+    );
   });
 }
 
