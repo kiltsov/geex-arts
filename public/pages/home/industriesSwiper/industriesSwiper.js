@@ -1,6 +1,7 @@
-const industrySliderViewMap = [1, 3, 2, 3, 3]; // По порядку слайдеров
+const industrySliderViewMap = [1, 3, 2, 3, 3]; // по порядку слайдеров на странице
 
 const industrySliderComponent = {
+  root: '.industry-slider',
   swiperEl: '.swiper',
   buttonContainer: '.industry-slider__buttons',
   buttonTrack: '.industry-slider__button-track',
@@ -14,32 +15,37 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
   const buttonContainer = sliderRoot.querySelector(industrySliderComponent.buttonContainer);
   const buttonTrack = sliderRoot.querySelector(industrySliderComponent.buttonTrack);
   const buttons = sliderRoot.querySelectorAll(industrySliderComponent.buttons);
+  const nextEl = sliderRoot.querySelector(industrySliderComponent.nextEl);
+  const prevEl = sliderRoot.querySelector(industrySliderComponent.prevEl);
 
   if (!swiperEl) return;
 
-  const swiper = new Swiper(swiperEl, {
+  new Swiper(swiperEl, {
     speed: 700,
     spaceBetween: 0,
     slidesPerView,
     loop: false,
     navigation: {
-      nextEl: sliderRoot.querySelector(industrySliderComponent.nextEl),
-      prevEl: sliderRoot.querySelector(industrySliderComponent.prevEl),
+      nextEl,
+      prevEl,
     },
   });
 
-  // Безопасно навешиваем hover-анимацию
+  // Движение кнопок за курсором
   if (buttonContainer && buttonTrack) {
     buttonContainer.addEventListener('mousemove', (e) => {
       const rect = buttonContainer.getBoundingClientRect();
       const offsetY = e.clientY - rect.top;
       const trackHeight = buttonTrack.offsetHeight;
       const containerHeight = rect.height;
+
       let translateY = offsetY - trackHeight / 2;
       translateY = Math.max(0, Math.min(translateY, containerHeight - trackHeight));
+
       buttonTrack.style.transform = `translateY(${translateY}px)`;
     });
 
+    // Анимация при наведении
     buttonContainer.addEventListener('mouseenter', () => {
       gsap.fromTo(
         buttons,
@@ -60,7 +66,7 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
 }
 
 function swiperIndustriesInit() {
-  const sliders = document.querySelectorAll(industrySliderComponent.swiperEl);
+  const sliders = document.querySelectorAll(industrySliderComponent.root);
 
   sliders.forEach((slider, index) => {
     const slidesPerView = industrySliderViewMap[index] || 1;
