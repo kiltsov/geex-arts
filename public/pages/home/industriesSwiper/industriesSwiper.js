@@ -54,6 +54,25 @@ function swiperIndustriesInit() {
       }
     );
   });
+
+  buttonContainer.addEventListener('mouseleave', () => {
+    gsap.fromTo(
+      buttons,
+      { 
+        y: 0,
+        opacity: 1,
+      },
+      {
+        y: (i) => (i % 2 === 0 ? -100 : 100),
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power2.out',
+      }
+    );
+  });
+
+  
 }
 
 export { swiperIndustriesInit };
