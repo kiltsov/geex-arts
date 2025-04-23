@@ -43,7 +43,7 @@ function swiperIndustriesInit() {
       buttons,
       {
         y: (i) => (i % 2 === 0 ? -100 : 100), // разные направления
-        opacity: 0,
+        opacity: 1,
       },
       {
         y: 0,
