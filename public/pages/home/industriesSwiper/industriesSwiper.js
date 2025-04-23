@@ -42,7 +42,7 @@ function swiperIndustriesInit() {
     gsap.fromTo(
       buttons,
       {
-        y: (i) => (i % 2 === 0 ? -50 : 50), // разные направления
+        y: (i) => (i % 2 === 0 ? -100 : 100), // разные направления
         opacity: 0,
       },
       {
