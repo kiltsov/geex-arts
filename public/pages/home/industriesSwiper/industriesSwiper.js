@@ -22,7 +22,7 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
 
   new Swiper(swiperEl, {
     speed: 700,
-    spaceBetween: 0,
+    spaceBetween: 12,
     slidesPerView,
     loop: false,
     navigation: {
