@@ -5,7 +5,7 @@ const swiperComponent = {
 }
 
 
-const swiperIndustries = new Swiper(swiperComponent.swiper, {
+const swiperIndustriesInit = new Swiper(swiperComponent.swiper, {
     speed: 400,
     spaceBetween: 0,
     slidesPerView: 1,
@@ -15,3 +15,4 @@ const swiperIndustries = new Swiper(swiperComponent.swiper, {
         prevEl: swiperComponent.buttonPrev,
     },
   });
+

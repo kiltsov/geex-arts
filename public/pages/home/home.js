@@ -5,6 +5,8 @@ import { pageTransitionAnimation } from '../../components/transition/transition.
 import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
+import { swiperIndustriesInit } from './industriesSwiper/industriesSwiper.js';
+
 const homePage = {
   heroModel: {
     grid: document.querySelector('.model-grid'),
@@ -57,6 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
       video.pause();
     });
   });
+
+  swiperIndustriesInit();
 });
 
 pageTransitionAnimation(() => {
