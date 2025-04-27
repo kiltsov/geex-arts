@@ -197,3 +197,21 @@
         height: 40.5rem;
     }
 }
+
+.awards-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.award-card {
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.award-card:hover .awards-image {
+    opacity: 1;
+}
+
+.award-card:hover {
+    background-color: rgba(244, 244, 242, 1);
+}
