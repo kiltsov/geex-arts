@@ -71,18 +71,6 @@ if (videoWrapper && modalIndustries && modalCloseButton) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const videos = document.querySelectorAll('.work-card-video_hover');
-
-  videos.forEach((video) => {
-    video.addEventListener('mouseenter', () => {
-      video.play();
-    });
-
-    video.addEventListener('mouseleave', () => {
-      video.pause();
-    });
-  });
-
   swiperIndustriesInit();
 });
 
