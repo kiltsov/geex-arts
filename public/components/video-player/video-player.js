@@ -25,6 +25,7 @@ function videoAutoplay() {
     const video = card.querySelector('.video-player');
     if (!video) return;
 
+    video.setAttribute('autoplay', ''); // <--- Динамически добавляем autoplay
     video.play().catch(err => {
       console.warn('Автозапуск видео не удался на мобильном устройстве:', err);
     });
