@@ -1,6 +1,6 @@
 export const cursorViewCaseComponent = {
   cursorWrappers: document.querySelectorAll('.cursor-wrapper'),
-  cursors: document.querySelectorAll('.view-case-cursor'),
+  cursors: document.querySelectorAll('.cursor'),
 };
 
 export function cursorViewCaseAnimation() {
