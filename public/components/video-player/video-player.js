@@ -2,7 +2,7 @@
 
 
 function videoPlayOnHover() {
-const cards = document.querySelectorAll('.industry__current-work');
+const cards = document.querySelectorAll('.industry__current-work', '.work-card__video');
 
 cards.forEach(card => {
   const video = card.querySelector('.video-player');
