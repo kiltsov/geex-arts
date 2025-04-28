@@ -3,9 +3,9 @@ const cursorViewCaseComponent = {
   cursors: document.querySelectorAll('.cursor'),
 };
 
-export function cursorViewCaseAnimation() {
+function cursorViewCaseAnimation() {
   if (!cursorViewCaseComponent.cursorWrappers.length) return;
-z
+
   cursorViewCaseComponent.cursorWrappers.forEach((wrapper) => {
     const cursor = wrapper.querySelector('.cursor');
     if (!cursor) return;
@@ -61,3 +61,5 @@ z
     gsap.set(cursor, { autoAlpha: 0 });
   });
 }
+
+export { cursorViewCaseAnimation };
