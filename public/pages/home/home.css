@@ -38,6 +38,15 @@
     animation: scroll 40s linear infinite;
 }
 
+.social-model__button .social-button-blur {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.social-model__button:hover .social-button-blur {
+    opacity: 1;
+}
+
 /********************** CTA *******************************/
 .cta-model__marquee-content {
     animation: scroll 20s linear infinite;
