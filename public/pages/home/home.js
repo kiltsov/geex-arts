@@ -6,6 +6,8 @@ import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
 import { swiperIndustriesInit } from './industriesSwiper/industriesSwiper.js';
+import { videoPlayOnHover } from '../../components/video-player/video-player.js';
+
 
 const homePage = {
   heroModel: {
@@ -92,3 +94,4 @@ pageTransitionAnimation(() => {
 });
 
 cursorViewCaseAnimation();
+videoPlayOnHover();
