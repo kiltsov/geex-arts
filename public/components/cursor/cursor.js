@@ -1,13 +1,13 @@
-export const cursorViewCaseComponent = {
+const cursorViewCaseComponent = {
   cursorWrappers: document.querySelectorAll('.cursor-wrapper'),
   cursors: document.querySelectorAll('.cursor'),
 };
 
 export function cursorViewCaseAnimation() {
   if (!cursorViewCaseComponent.cursorWrappers.length) return;
-
+z
   cursorViewCaseComponent.cursorWrappers.forEach((wrapper) => {
-    const cursor = wrapper.querySelector('.view-case-cursor');
+    const cursor = wrapper.querySelector('.cursor');
     if (!cursor) return;
 
     const xTo = gsap.quickTo(cursor, 'x', {
