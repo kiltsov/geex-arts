@@ -1,7 +1,7 @@
-function videoPlayOnHover() {
-  const cards = document.querySelectorAll('.industry__current-work, .work-card__video');
+import { hoverElements } from '../../global/global.js';
 
-  cards.forEach(card => {
+function videoPlayOnHover() {
+  hoverElements.forEach(card => {
     const video = card.querySelector('.video-player');
     if (!video) return; // если видео нет — пропустить
 
