@@ -47,6 +47,27 @@ function homeHeroModelAnimation() {
   });
 }
 
+// Находим нужные элементы
+const videoWrapper = document.querySelector('.services-video__wrapper');
+const modalIndustries = document.querySelector('.modal-industries');
+const modalCloseButton = document.querySelector('.modal-industries__close-button');
+
+// Функция для открытия модального окна
+function openModal() {
+  modalIndustries.classList.add('is-active'); // Предполагаем, что класс is-active показывает модалку
+}
+
+// Функция для закрытия модального окна
+function closeModal() {
+  modalIndustries.classList.remove('is-active');
+}
+
+// Вешаем обработчики событий
+if (videoWrapper && modalIndustries && modalCloseButton) {
+  videoWrapper.addEventListener('click', openModal);
+  modalCloseButton.addEventListener('click', closeModal);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('.work-card-video_hover');
 
