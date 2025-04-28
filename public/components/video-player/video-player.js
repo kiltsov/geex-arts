@@ -3,7 +3,7 @@ import { hoverElements } from '../../global/global.js';
 function videoPlayOnHover() {
   hoverElements.forEach(card => {
     const video = card.querySelector('.video-player');
-    if (!video) return; // если видео нет — пропустить
+    if (!video) return;
 
     card.addEventListener('mouseenter', async () => {
       try {
@@ -20,4 +20,15 @@ function videoPlayOnHover() {
   });
 }
 
-export { videoPlayOnHover };
+function videoAutoplay() {
+  hoverElements.forEach(card => {
+    const video = card.querySelector('.video-player');
+    if (!video) return;
+
+    video.play().catch(err => {
+      console.warn('Автозапуск видео не удался на мобильном устройстве:', err);
+    });
+  });
+}
+
+export { videoPlayOnHover, videoAutoplay };

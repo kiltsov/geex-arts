@@ -1,3 +1,6 @@
+
+import { isMobile } from '../../global/global.js';
+
 import { headerScrollAnimation } from '../../components/header/header.js';
 import { headerMoveIntoViewAnimation } from '../../components/header/header.js';
 
@@ -6,7 +9,7 @@ import { cursorViewCaseAnimation } from '../../components/cursor/cursor.js';
 import { textFadeIntoAnimation } from '../../components/text-animation/textAnimation.js';
 
 import { swiperIndustriesInit } from './industriesSwiper/industriesSwiper.js';
-import { videoPlayOnHover } from '../../components/video-player/video-player.js';
+import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
 
 
 const homePage = {
@@ -80,6 +83,17 @@ pageTransitionAnimation(() => {
   headerMoveIntoViewAnimation();
   headerScrollAnimation();
 });
+
+// DESKTOP FUNCTIONS
+if (!isMobile() && window.innerWidth > 992) {
+  videoPlayOnHover();
+}
+
+// MOBILE FUNCTIONS
+if (isMobile() && window.innerWidth < 992) {
+  videoAutoplay();
+}
+
 
 cursorViewCaseAnimation();
 videoPlayOnHover();
