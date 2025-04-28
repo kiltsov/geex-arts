@@ -216,3 +216,12 @@
 .award-card:hover {
     background-color: rgba(244, 244, 242, 1);
 }
+
+/********************** Modal industries *******************************/
+.modal-industries {
+    display: none;
+}
+
+.modal-industries.is-active {
+    display: block;
+}
