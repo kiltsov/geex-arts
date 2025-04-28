@@ -1,5 +1,5 @@
 export const cursorViewCaseComponent = {
-  cursorWrappers: document.querySelectorAll('.view-case__cursor-wrapper'),
+  cursorWrappers: document.querySelectorAll('.cursor-wrapper'),
   cursors: document.querySelectorAll('.view-case-cursor'),
 };
 
