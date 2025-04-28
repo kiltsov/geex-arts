@@ -87,13 +87,10 @@ pageTransitionAnimation(() => {
 // DESKTOP FUNCTIONS
 if (!isMobile() && window.innerWidth > 992) {
   videoPlayOnHover();
+  cursorViewCaseAnimation();
 }
 
 // MOBILE FUNCTIONS
 if (isMobile() && window.innerWidth < 992) {
   videoAutoplay();
 }
-
-
-cursorViewCaseAnimation();
-videoPlayOnHover();
