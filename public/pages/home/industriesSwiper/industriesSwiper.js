@@ -29,6 +29,14 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
       nextEl,
       prevEl,
     },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      992: {
+        slidesPerView: slidesPerView, 
+      },
+    },
   });
 
   // Движение кнопок за курсором
