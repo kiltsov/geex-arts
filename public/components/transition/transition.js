@@ -19,7 +19,7 @@ export function pageTransitionAnimation(callback) {
   pageTransitionTimeline.to(transitionComponent.transition_column, {
     delay: 0.5,
     yPercent: -100,
-    duration: 1,
+    duration: 0.5,
   });
 
   pageTransitionTimeline.set(transitionComponent.component, { display: 'none' });
