@@ -1,4 +1,3 @@
-
 import { isMobile } from '../../global/global.js';
 
 import { headerScrollAnimation } from '../../components/header/header.js';
@@ -10,7 +9,6 @@ import { textFadeIntoAnimation } from '../../components/text-animation/textAnima
 
 import { swiperIndustriesInit } from './industriesSwiper/industriesSwiper.js';
 import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
-
 
 const homePage = {
   heroModel: {
@@ -107,7 +105,7 @@ videoWrapper.addEventListener('mousemove', (e) => {
   videoWrapper.style.transform = `translate(${targetX}px, ${targetY}px)`;
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function socialModelInit() {
   const platforms = ['behance', 'twitter', 'dribbble', 'facebook', 'instagram'];
 
   platforms.forEach((platform) => {
@@ -128,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-});
+}
 
 //
 //
@@ -151,6 +149,10 @@ pageTransitionAnimation(() => {
 
 window.addEventListener('load', function () {
   swiperIndustriesInit();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  socialModelInit();
 });
 
 // DESKTOP FUNCTIONS

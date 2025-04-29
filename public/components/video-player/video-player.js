@@ -1,7 +1,7 @@
-import { hoverElements } from '../../global/global.js';
+const videoHoverElements = document.querySelectorAll('[hover-element]');
 
 function videoPlayOnHover() {
-  hoverElements.forEach(card => {
+  videoHoverElements.forEach(card => {
     const video = card.querySelector('.video-player');
     if (!video) return;
 
@@ -21,7 +21,7 @@ function videoPlayOnHover() {
 }
 
 function videoAutoplay() {
-  hoverElements.forEach(card => {
+  videoHoverElements.forEach(card => {
     const video = card.querySelector('.video-player');
     if (!video) return;
 

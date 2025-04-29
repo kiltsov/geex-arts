@@ -1,8 +1,9 @@
-import { hoverElements } from '../../global/global.js';
+const cursorWrappers = document.querySelectorAll('.cursor-wrapper');
+const cursors = document.querySelectorAll('.cursor');
 
 const cursorViewCaseComponent = {
-  cursorWrappers: hoverElements,
-  cursors: document.querySelectorAll('.cursor'),
+  cursorWrappers: cursorWrappers,
+  cursors: cursors,
 };
 
 function cursorViewCaseAnimation() {
