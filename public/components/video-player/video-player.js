@@ -1,4 +1,4 @@
-const videoHoverElements = document.querySelectorAll('[hover-element]');
+const videoHoverElements = document.querySelectorAll('[video-hover]');
 
 function videoPlayOnHover() {
   videoHoverElements.forEach(card => {
