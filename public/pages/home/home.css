@@ -101,6 +101,11 @@
     opacity: 1;
 }
 
+.social-model__text-wrapper {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
 .social-model__margue-images {
     animation: scroll 40s linear infinite;
 }
