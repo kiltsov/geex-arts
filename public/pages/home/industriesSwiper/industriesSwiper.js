@@ -12,11 +12,22 @@ const industrySliderComponent = {
 
 function initIndustrySlider(sliderRoot, slidesPerView = 1) {
   const swiperEl = sliderRoot.matches(industrySliderComponent.swiperEl)
-  ? sliderRoot
-  : sliderRoot.querySelector(industrySliderComponent.swiperEl);
+    ? sliderRoot
+    : sliderRoot.querySelector(industrySliderComponent.swiperEl);
 
   if (!(swiperEl instanceof Element)) {
-    console.warn('Swiper element not found or invalid in', sliderRoot);
+    console.warn('Элемент не найден или невалиден:', swiperEl, 'в блоке:', sliderRoot);
+    return;
+  }
+
+  const slides = swiperEl.querySelectorAll('.swiper-slide');
+  if (slides.length === 0) {
+    console.warn('Пропущен инициализация: нет слайдов в', swiperEl);
+    return;
+  }
+
+  if (swiperEl.classList.contains('swiper-initialized')) {
+    console.warn('Уже инициализирован:', swiperEl);
     return;
   }
 
