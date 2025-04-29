@@ -46,9 +46,10 @@
     animation: rotateReverceClockwise 12s linear infinite;
 }
 
-.model__link:hover .hero-model__mask-3,
-.model__link:hover .hero-model-circle__inner-white.is-1,
-.model__link:hover .hero-model-circle__inner-white.is-2 {
+/* .model__link:hover .hero-model-circle__inner-white.is-1
+.model__link:hover .hero-model-circle__inner-white.is-2 */
+
+.model__link:hover .hero-model__mask-3 {
   animation-play-state: paused;
 }
 
