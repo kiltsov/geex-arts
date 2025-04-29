@@ -133,7 +133,7 @@ function socialModelInit() {
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
-
+window.addEventListener('load', function () {
 pageTransitionAnimation(() => {
   textFadeIntoAnimation();
   homeHeroModelAnimation();
@@ -141,7 +141,6 @@ pageTransitionAnimation(() => {
   headerScrollAnimation();
 });
 
-window.addEventListener('load', function () {
   swiperIndustriesInit();
 });
 
