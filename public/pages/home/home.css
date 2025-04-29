@@ -1,5 +1,3 @@
-
-/********************** Hero model *******************************/
 @keyframes rotateClockwise {
     from {
         transform: rotate(0deg);
@@ -7,6 +5,16 @@
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes reverseRotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
     }
 }
 
@@ -22,6 +30,8 @@
     }
 }
 
+
+/********************** Hero model *******************************/
 .hero-model__mask-3 {
     animation: rotateClockwise 10s linear infinite;
 }
@@ -44,7 +54,7 @@
     animation: rotateClockwise 10s linear infinite;
 }
 .hero-model-circle__inner-white.is-2 {
-    animation: rotateClockwise 12s linear infinite;
+    animation: reverseRotateClockwise 12s linear infinite;
 }
 
 
