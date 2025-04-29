@@ -111,9 +111,13 @@ videoWrapper.addEventListener('mousemove', (e) => {
 //
 //
 
-document.addEventListener('DOMContentLoaded', function () {
-  swiperIndustriesInit();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   swiperIndustriesInit();
+// });
+
+// window.addEventListener('load', function () {
+//   swiperIndustriesInit();
+// });
 
 pageTransitionAnimation(() => {
   textFadeIntoAnimation();
@@ -121,6 +125,8 @@ pageTransitionAnimation(() => {
   headerMoveIntoViewAnimation();
   headerScrollAnimation();
 });
+
+swiperIndustriesInit();
 
 // DESKTOP FUNCTIONS
 if (!isMobile() && window.innerWidth > 992) {
