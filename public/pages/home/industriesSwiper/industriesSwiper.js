@@ -37,8 +37,8 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
   const nextEl = sliderRoot.querySelector(industrySliderComponent.nextEl);
   const prevEl = sliderRoot.querySelector(industrySliderComponent.prevEl);
 
-  console.log('swiperEl:', swiperEl);
-  console.log('type:', swiperEl instanceof Element); // должен быть true
+  // console.log('swiperEl:', swiperEl);
+  // console.log('type:', swiperEl instanceof Element); // должен быть true
 
   new Swiper(swiperEl, {
     speed: 700,
