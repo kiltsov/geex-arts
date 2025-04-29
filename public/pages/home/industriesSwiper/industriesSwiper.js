@@ -20,6 +20,9 @@ function initIndustrySlider(sliderRoot, slidesPerView = 1) {
 
   if (!swiperEl) return;
 
+  console.log('swiperEl:', swiperEl);
+  console.log('type:', swiperEl instanceof Element); // должен быть true
+
   new Swiper(swiperEl, {
     speed: 700,
     spaceBetween: 12,
