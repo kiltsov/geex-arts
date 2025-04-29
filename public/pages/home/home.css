@@ -103,7 +103,7 @@
 
 .social-model__marquee {
     opacity: 1;
-    transition: opacity 0.8s ease;
+    transition: opacity 1s ease;
 }
 
 .social-model__margue-images {
