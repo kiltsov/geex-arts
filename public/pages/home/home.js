@@ -107,6 +107,27 @@ videoWrapper.addEventListener('mousemove', (e) => {
   videoWrapper.style.transform = `translate(${targetX}px, ${targetY}px)`;
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const platforms = ['behance', 'twitter', 'dribbble', 'facebook', 'instagram'];
+
+  platforms.forEach((platform) => {
+    const button = document.querySelector(`.social-model__button.is-${platform}`);
+    const track = document.querySelector(`.social-model__track.is-${platform}`);
+    const allTracks = document.querySelectorAll('.social-model__track');
+
+    if (button && track) {
+      button.addEventListener('mouseenter', () => {
+        allTracks.forEach((t) => (t.style.opacity = '0'));
+        track.style.opacity = '1';
+      });
+
+      button.addEventListener('mouseleave', () => {
+        track.style.opacity = '0';
+      });
+    }
+  });
+});
+
 //
 //
 //

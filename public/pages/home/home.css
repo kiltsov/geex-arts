@@ -101,6 +101,16 @@
     opacity: 1;
 }
 
+.social-model__margue-images {
+    animation: scroll 40s linear infinite;
+}
+
+.social-model__track {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
 /********************** CTA *******************************/
 .cta-model__marquee-content {
     animation: scroll 20s linear infinite;
