@@ -1,4 +1,4 @@
-const cursorWrappers = document.querySelectorAll('.cursor-wrapper');
+const cursorWrappers = document.querySelectorAll('[cursor-hover]');
 const cursors = document.querySelectorAll('.cursor');
 
 const cursorViewCaseComponent = {
