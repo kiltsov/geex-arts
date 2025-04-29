@@ -74,8 +74,6 @@ if (videoWrapper && modalIndustries && modalCloseButton) {
 }
 
 // Video hover effect
-const videoWrapper = document.querySelector('.services-video__wrapper');
-
 let isHovering = false;
 let targetX = 0;
 let targetY = 0;
