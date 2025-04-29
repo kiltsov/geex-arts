@@ -126,7 +126,9 @@ pageTransitionAnimation(() => {
   headerScrollAnimation();
 });
 
-swiperIndustriesInit();
+window.addEventListener('load', function () {
+  swiperIndustriesInit();
+});
 
 // DESKTOP FUNCTIONS
 if (!isMobile() && window.innerWidth > 992) {

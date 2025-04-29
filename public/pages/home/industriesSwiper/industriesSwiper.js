@@ -12,13 +12,17 @@ const industrySliderComponent = {
 
 function initIndustrySlider(sliderRoot, slidesPerView = 1) {
   const swiperEl = sliderRoot.querySelector(industrySliderComponent.swiperEl);
+
+  if (!(swiperEl instanceof Element)) {
+    console.warn('Swiper element not found or invalid in', sliderRoot);
+    return;
+  }
+
   const buttonContainer = sliderRoot.querySelector(industrySliderComponent.buttonContainer);
   const buttonTrack = sliderRoot.querySelector(industrySliderComponent.buttonTrack);
   const buttons = sliderRoot.querySelectorAll(industrySliderComponent.buttons);
   const nextEl = sliderRoot.querySelector(industrySliderComponent.nextEl);
   const prevEl = sliderRoot.querySelector(industrySliderComponent.prevEl);
-
-  if (!swiperEl) return;
 
   console.log('swiperEl:', swiperEl);
   console.log('type:', swiperEl instanceof Element); // должен быть true
