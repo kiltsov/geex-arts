@@ -11,7 +11,9 @@ const industrySliderComponent = {
 };
 
 function initIndustrySlider(sliderRoot, slidesPerView = 1) {
-  const swiperEl = sliderRoot.querySelector(industrySliderComponent.swiperEl);
+  const swiperEl = sliderRoot.matches(industrySliderComponent.swiperEl)
+  ? sliderRoot
+  : sliderRoot.querySelector(industrySliderComponent.swiperEl);
 
   if (!(swiperEl instanceof Element)) {
     console.warn('Swiper element not found or invalid in', sliderRoot);
