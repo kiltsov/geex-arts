@@ -89,6 +89,7 @@
 }
 
 .social-model__marquee-content {
+    
     animation: scroll 40s linear infinite;
 }
 
@@ -101,7 +102,7 @@
     opacity: 1;
 }
 
-.social-model__text-wrapper {
+.social-model__marquee {
     opacity: 1;
     transition: opacity 0.2s ease;
 }

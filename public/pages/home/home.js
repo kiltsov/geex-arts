@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector(`.social-model__button.is-${platform}`);
     const track = document.querySelector(`.social-model__track.is-${platform}`);
     const allTracks = document.querySelectorAll('.social-model__track');
-    const textWrapper = document.querySelector('.social-model__text-wrapper');
+    const textWrapper = document.querySelector('.social-model__marquee');
     if (button && track) {
       button.addEventListener('mouseenter', () => {
         allTracks.forEach((t) => (t.style.opacity = '0'));
