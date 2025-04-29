@@ -73,6 +73,46 @@ if (videoWrapper && modalIndustries && modalCloseButton) {
   modalCloseButton.addEventListener('click', closeModal);
 }
 
+// Video hover effect
+const videoWrapper = document.querySelector('.services-video__wrapper');
+
+let isHovering = false;
+let targetX = 0;
+let targetY = 0;
+
+videoWrapper.addEventListener('mouseenter', () => {
+  isHovering = true;
+});
+
+videoWrapper.addEventListener('mouseleave', () => {
+  isHovering = false;
+  videoWrapper.style.transform = `translate(0px, 0px)`; // Сбросить позицию
+});
+
+videoWrapper.addEventListener('mousemove', (e) => {
+  if (!isHovering) return;
+
+  const rect = videoWrapper.getBoundingClientRect();
+  const offsetX = e.clientX - rect.left; // Позиция мыши внутри элемента
+  const offsetY = e.clientY - rect.top;
+
+  // Нормализуем координаты в диапазон [-1, 1]
+  const xPercent = (offsetX / rect.width) * 2 - 1;
+  const yPercent = (offsetY / rect.height) * 2 - 1;
+
+  // Управляем силой движения
+  const moveRange = 20; // Максимальное смещение в пикселях
+
+  targetX = xPercent * moveRange;
+  targetY = yPercent * moveRange;
+
+  videoWrapper.style.transform = `translate(${targetX}px, ${targetY}px)`;
+});
+
+//
+//
+//
+
 document.addEventListener('DOMContentLoaded', function () {
   swiperIndustriesInit();
 });

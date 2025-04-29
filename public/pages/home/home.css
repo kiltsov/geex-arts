@@ -234,3 +234,8 @@
 .modal-industries.is-active {
     display: block;
 }
+
+.services-video__wrapper {
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
