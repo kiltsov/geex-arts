@@ -1,3 +1,6 @@
+/*****************************************************************/
+/********************** Animations *******************************/
+/*****************************************************************/
 @keyframes rotateClockwise {
     from {
         transform: rotate(0deg);
@@ -8,7 +11,7 @@
     }
 }
 
-@keyframes reverseRotateClockwise {
+@keyframes rotateReverceClockwise {
     from {
         transform: rotate(0deg);
     }
@@ -36,19 +39,14 @@
     animation: rotateClockwise 10s linear infinite;
 }
 
-.works-more-button__mask {
-    animation: rotateClockwise 12s linear infinite;
-}
-
 .hero-model-circle__inner-white.is-1 {
     animation: rotateClockwise 10s linear infinite;
 }
 .hero-model-circle__inner-white.is-2 {
-    animation: reverseRotateClockwise 12s linear infinite;
+    animation: rotateReverceClockwise 12s linear infinite;
 }
 
 .model__link:hover .hero-model__mask-3,
-.model__link:hover .works-more-button__mask,
 .model__link:hover .hero-model-circle__inner-white.is-1,
 .model__link:hover .hero-model-circle__inner-white.is-2 {
   animation-play-state: paused;
@@ -221,6 +219,14 @@
     .works__item:nth-child(6n+6) .work-card__video {
         height: 40.5rem;
     }
+}
+
+.works-more-button__mask {
+    animation: rotateClockwise 12s linear infinite;
+}
+
+.works__more-button:hover .works-more-button__mask {
+    animation-play-state: paused;
 }
 
 /********************** Awards *******************************/
