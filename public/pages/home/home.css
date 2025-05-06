@@ -116,11 +116,6 @@
     pointer-events: none;
 }
 
-/********************** CTA *******************************/
-.cta-model__marquee-content {
-    animation: scroll 20s linear infinite;
-}
-
 /********************** Services links *******************************/
 .services-link {
     transition: all 0.5s ease;
@@ -284,4 +279,19 @@
 .services-video__wrapper {
     transition: transform 0.2s ease-out;
     will-change: transform;
+}
+
+/********************** CTA *******************************/
+@keyframes scrollCtaElement {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+.cta-model__marquee-content {
+    animation: scrollCtaElement 20s linear infinite;
 }
