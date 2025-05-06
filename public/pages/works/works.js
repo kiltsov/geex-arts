@@ -48,33 +48,28 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  const items = document.querySelectorAll(".works__item");
-  const filters = document.querySelectorAll(".work-filter-radio"); // это wrapper, не input
+  // Получаем все вкладки с классом 'works-tab-wrap' (категории)
+  const categories = document.querySelectorAll('.work-filter-radio');
 
-  filters.forEach(wrapper => {
-    const radio = wrapper.querySelector('input[type="radio"]');
-    if (!radio) return;
+  categories.forEach((category) => {
+    // Получаем уникальный идентификатор для каждой категории
+    const categoryID = category.getAttribute('data-category-id');
 
-    const value = radio.value.trim().toLowerCase();
-    let count = 0;
+    // Считаем количество работ, относящихся к данной категории
+    const worksInCategory = document.querySelectorAll(`.works-filter__item[data-category-id="${categoryID}"]`).length;
 
-    items.forEach(item => {
-      const tags = item.querySelectorAll('.services-tag-name');
-      tags.forEach(tag => {
-        const tagText = tag.textContent.trim().toLowerCase();
-        if (tagText === value) {
-          count++;
-        }
-      });
-    });
+    // Вставляем число работ в элемент-счетчик рядом с названием категории
+    const counterElement = category.querySelector('.filter-count');
+    if (counterElement) {
+      counterElement.textContent = worksInCategory;
+    }
 
-    const countSpan = wrapper.querySelector('.filter-count');
-    if (countSpan) {
-      countSpan.textContent = `(${count})`;
+    // Если количество работ равно 0, скрываем категорию
+    if (worksInCategory === 0) {
+      category.style.display = 'none'; // Скрываем категорию
     }
   });
 }
-
 
 // ========================================== //
 // ================== INIT ================== //
@@ -87,9 +82,7 @@ pageTransitionAnimation(() => {
   headerScrollAnimation();
 });
 
-
-window.addEventListener('load', function () {
-});
+window.addEventListener('load', function () {});
 
 document.addEventListener('DOMContentLoaded', () => {
   // worksFilters();
