@@ -9,19 +9,55 @@ import { textFadeIntoAnimation } from '../../components/text-animation/textAnima
 
 import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
 
-const homePage = {
+const worksPage = {
   heroModel: {
-    grid: document.querySelector('.model-grid'),
-    circles: document.querySelectorAll('.hero-model-cirle'),
-    pin: document.querySelectorAll('.model-pin'),
+    bigImage: document.querySelector('.works-hero-model__image-main'),
+    circles: document.querySelectorAll('.works-hero-model__grid-image'),
   },
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
 };
 
+function worksPageHeroModelAnimation() {
+  const { circles, bigImage } = worksPage.heroModel;
+
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  gsap.set(circles, {
+    opacity: 0,
+    yPercent: 100,
+  });
+
+  gsap.set(bigImage, {
+    opacity: 0,
+    yPercent: 100,
+  });
+
+  tl.to(circles, {
+    opacity: 1,
+    yPercent: 0,
+    duration: 1,
+    stagger: 0.05,
+  });
+
+  tl.to(bigImage, {
+    opacity: 1,
+    yPercent: 0,
+    duration: 1,
+  });
+}
+
+
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
+
+pageTransitionAnimation(() => {
+  textFadeIntoAnimation();
+  worksPageHeroModelAnimation();
+  headerMoveIntoViewAnimation();
+  headerScrollAnimation();
+});
 
 
 window.addEventListener('load', function () {
