@@ -48,7 +48,7 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  const items = document.querySelectorAll(".works__item");
+  const items = document.querySelectorAll(".work-filter-radio");
   const filters = document.querySelectorAll("[data-category-id]"); // все фильтры
 
   filters.forEach(filter => {
