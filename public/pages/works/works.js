@@ -78,6 +78,8 @@ function worksFilters() {
   });
 }
 
+
+
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
@@ -97,8 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // DESKTOP FUNCTIONS
 if (!isMobile() && window.innerWidth > 992) {
+  videoPlayOnHover();
+  cursorViewCaseAnimation();
+  document.addEventListener('DOMContentLoaded', () => {
+    socialModelInit();
+  });
 }
 
 // MOBILE FUNCTIONS
 if (isMobile() && window.innerWidth < 992) {
+  videoAutoplay();
 }
