@@ -89,9 +89,6 @@ window.addEventListener('load', function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-});
-
-document.addEventListener('fs-cmsfilter:loaded', () => {
   worksFilters();
 });
 
