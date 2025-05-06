@@ -49,23 +49,23 @@ function worksPageHeroModelAnimation() {
 
 function worksFilters() {
   const items = document.querySelectorAll("[fs-cmsfilter-element='list'] > *");
-  const checkboxes = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='checkbox']");
+  const radios = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='radio']");
 
-  checkboxes.forEach(checkbox => {
-    const value = checkbox.value.trim().toLowerCase();
+  radios.forEach(radio => {
+    const filterValue = normalize(radio.value);
     let count = 0;
 
     items.forEach(item => {
       const tags = item.querySelectorAll('.services-tag-name');
       tags.forEach(tag => {
-        const tagText = tag.textContent.trim().toLowerCase();
-        if (tagText === value) {
+        const tagText = normalize(tag.textContent);
+        if (tagText === filterValue) {
           count++;
         }
       });
     });
 
-    const countSpan = checkbox.closest('.works-filter__item')?.querySelector('.filter-count');
+    const countSpan = radio.closest('.works-filter__item')?.querySelector('.filter-count');
     if (countSpan) {
       countSpan.textContent = `(${count})`;
     }
