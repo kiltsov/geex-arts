@@ -83,7 +83,7 @@ function worksFilters() {
 // ========================================== //
 
 pageTransitionAnimation(() => {
-  // textFadeIntoAnimation();
+  textFadeIntoAnimation();
   // worksPageHeroModelAnimation();
   // headerMoveIntoViewAnimation();
   headerScrollAnimation();

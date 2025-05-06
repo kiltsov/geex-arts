@@ -5,7 +5,7 @@ export const transitionComponent = {
   excluded_class: document.querySelector('.excluded-class'),
 };
 
-export function pageTransitionAnimation(callback) {
+export function pageTransitionAnimation(callback, DURATION_TRANSITION = 1.5) {
   if (!transitionComponent.component) return;
 
   let pageTransitionTimeline = gsap.timeline({
@@ -19,7 +19,7 @@ export function pageTransitionAnimation(callback) {
   pageTransitionTimeline.to(transitionComponent.transition_column, {
     delay: 0.5,
     yPercent: -100,
-    duration: 1.5,
+    duration: DURATION_TRANSITION,
   });
 
   pageTransitionTimeline.set(transitionComponent.component, { display: 'none' });
