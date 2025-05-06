@@ -1,3 +1,59 @@
+.text-work-filter {
+    color: beige;
+}
+
 .work-filter-radio.w-radio.fs-cmsfilter_active ~ .text-work-filter {
     color: #000;
+}
+
+
+/********************** Works Grid *******************************/
+@media only screen and (min-width: 992px) {
+    .works__list .works__item:nth-child(6n+1) {
+        width: 28.1875rem;
+    }
+
+    .works__list .works__item:nth-child(6n+2) {
+        width: 50.25rem;
+    }
+
+    .works__list .works__item:nth-child(6n+3) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+4) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+5) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+6) {
+        width: 64.8125rem;
+    }
+
+    .works__item:nth-child(6n+1) .work-card__video {
+        height: 21.125rem;
+    }
+
+    .works__item:nth-child(6n+2) .work-card__video {
+        height: 31.25rem;
+    }
+
+    .works__item:nth-child(6n+3) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+4) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+5) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+6) .work-card__video {
+        height: 40.5rem;
+    }
 }
