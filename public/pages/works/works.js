@@ -48,8 +48,8 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  const items = document.querySelectorAll("[fs-cmsfilter-element='list'] > *");
-  const radios = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='radio']");
+  const items = document.querySelectorAll(".works__item");
+  const radios = document.querySelectorAll(".work-filter");
 
   radios.forEach(radio => {
     const value = radio.value.trim().toLowerCase();
