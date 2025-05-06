@@ -48,7 +48,7 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  const items = document.querySelectorAll("[fs-cmsfilter-element='list'] > *"); // все элементы
+  const items = document.querySelectorAll("[fs-cmsfilter-element='list'] > *");
   const checkboxes = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='checkbox']");
 
   checkboxes.forEach(checkbox => {
@@ -56,8 +56,10 @@ function worksFilters() {
     let count = 0;
 
     items.forEach(item => {
-      const categories = item.getAttribute("fs-cmsfilter-field-services")?.toLowerCase() || "";
-      if (categories.includes(value)) {
+      const field = item.querySelector("[fs-cmsfilter-field='services']");
+      const text = field?.textContent?.toLowerCase() || "";
+
+      if (text.includes(value)) {
         count++;
       }
     });
@@ -86,6 +88,9 @@ window.addEventListener('load', function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+});
+
+document.addEventListener('fs-cmsfilter:loaded', () => {
   worksFilters();
 });
 
