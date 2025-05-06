@@ -52,14 +52,14 @@ function worksFilters() {
   const radios = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='radio']");
 
   radios.forEach(radio => {
-    const filterValue = normalize(radio.value);
+    const value = radio.value.trim().toLowerCase();
     let count = 0;
 
     items.forEach(item => {
       const tags = item.querySelectorAll('.services-tag-name');
       tags.forEach(tag => {
-        const tagText = normalize(tag.textContent);
-        if (tagText === filterValue) {
+        const tagText = tag.textContent.trim().toLowerCase();
+        if (tagText === value) {
           count++;
         }
       });
