@@ -48,25 +48,32 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  // Получаем все вкладки с классом 'works-tab-wrap' (категории)
-  const categories = document.querySelectorAll('.work-filter-radio');
+  const items = document.querySelectorAll(".works__item");
+  const filters = document.querySelectorAll("[data-category-id]"); // все фильтры
 
-  categories.forEach((category) => {
-    // Получаем уникальный идентификатор для каждой категории
-    const categoryID = category.getAttribute('data-category-id');
+  filters.forEach(filter => {
+    const category = filter.getAttribute("data-category-id")?.trim().toLowerCase();
+    let count = 0;
 
-    // Считаем количество работ, относящихся к данной категории
-    const worksInCategory = document.querySelectorAll(`.works-filter__item[data-category-id="${categoryID}"]`).length;
+    items.forEach(item => {
+      const tags = item.querySelectorAll("[data-category-id]");
+      let match = false;
 
-    // Вставляем число работ в элемент-счетчик рядом с названием категории
-    const counterElement = category.querySelector('.filter-count');
-    if (counterElement) {
-      counterElement.textContent = worksInCategory;
-    }
+      tags.forEach(tag => {
+        const tagCategory = tag.getAttribute("data-category-id")?.trim().toLowerCase();
+        if (tagCategory === category) {
+          match = true;
+        }
+      });
 
-    // Если количество работ равно 0, скрываем категорию
-    if (worksInCategory === 0) {
-      category.style.display = 'none'; // Скрываем категорию
+      if (match) {
+        count++;
+      }
+    });
+
+    const countSpan = filter.querySelector(".filter-count");
+    if (countSpan) {
+      countSpan.textContent = `(${count})`;
     }
   });
 }
@@ -85,7 +92,7 @@ pageTransitionAnimation(() => {
 window.addEventListener('load', function () {});
 
 document.addEventListener('DOMContentLoaded', () => {
-  // worksFilters();
+  worksFilters();
 });
 
 // DESKTOP FUNCTIONS
