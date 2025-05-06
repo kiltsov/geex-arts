@@ -65,7 +65,8 @@ function worksFilters() {
       });
     });
 
-    const countSpan = radio.querySelector('.filter-count');
+    const wrapper = radio.closest('.works-filter__item');
+    const countSpan = wrapper?.querySelector('.filter-count');
     if (countSpan) {
       countSpan.textContent = `(${count})`;
     }
