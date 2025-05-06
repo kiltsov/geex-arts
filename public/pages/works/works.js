@@ -14,6 +14,9 @@ const worksPage = {
     bigImage: document.querySelector('.works-hero-model__image-main'),
     circles: document.querySelectorAll('.works-hero-model__grid-image'),
   },
+  sectionWorks: {
+    items: document.querySelectorAll('.works__item'),
+  },
   videos: document.querySelectorAll('.work-card-video_hover'),
   cards: document.querySelectorAll('.work-card'),
 };
@@ -78,7 +81,27 @@ function worksFilters() {
   });
 }
 
+function worksListItemsAnimation() {
+  const items = worksPage.sectionWorks.items;
 
+  gsap.set(items, { y: 300, autoAlpha: 0 });
+
+  gsap.to(items, {
+    y: 0,
+    autoAlpha: 1,
+    stagger: {
+      each: 0.09,
+      from: "start",
+    },
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".works__list", // или другой обёртке, содержащей .works__item
+      start: "top 80%",        // когда верх обёртки попадает в 80% окна
+      toggleActions: "play none none none",
+    },
+  });
+}
 
 // ========================================== //
 // ================== INIT ================== //
@@ -95,6 +118,7 @@ window.addEventListener('load', function () {});
 
 document.addEventListener('DOMContentLoaded', () => {
   worksFilters();
+  worksListItemsAnimation();
 });
 
 // DESKTOP FUNCTIONS
