@@ -79,29 +79,27 @@ function worksFilters() {
       countSpan.textContent = `${count}`;
     }
   });
-}
+};
 
 function worksListItemsAnimation() {
   const items = worksPage.sectionWorks.items;
 
-  gsap.set(items, { y: 300, autoAlpha: 0 });
+  items.forEach((item) => {
+    gsap.set(item, { y: 100, autoAlpha: 0 });
 
-  gsap.to(items, {
-    y: 0,
-    autoAlpha: 1,
-    stagger: {
-      each: 0.09,
-      from: "start",
-    },
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".works__list", // или другой обёртке, содержащей .works__item
-      start: "top 80%",        // когда верх обёртки попадает в 80% окна
-      toggleActions: "play none none none",
-    },
+    gsap.to(item, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+    });
   });
-}
+};
 
 // ========================================== //
 // ================== INIT ================== //
