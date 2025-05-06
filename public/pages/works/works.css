@@ -1,0 +1,287 @@
+/*****************************************************************/
+/********************** Animations *******************************/
+/*****************************************************************/
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverceClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+/********************** Hero model *******************************/
+.hero-model__mask-3 {
+    animation: rotateClockwise 10s linear infinite;
+}
+
+.hero-model-circle__inner-white.is-1 {
+    animation: rotateClockwise 10s linear infinite;
+}
+.hero-model-circle__inner-white.is-2 {
+    animation: rotateReverceClockwise 12s linear infinite;
+}
+
+/* .model__link:hover .hero-model-circle__inner-white.is-1
+.model__link:hover .hero-model-circle__inner-white.is-2 */
+
+.model__link:hover .hero-model__mask-3 {
+  animation-play-state: paused;
+}
+
+
+.hero-model-cirle {
+    opacity: 0;
+    y: '100%',
+}
+
+.model-pin {
+    opacity: 0;
+    y: '100%',
+}
+
+/********************** Header *******************************/
+.header-brand {
+    transform: translateY(-20rem);
+}
+
+.nav-list__item {
+    transform: translateY(-20rem);
+}
+
+.button-header {
+    transform: translateY(-20rem);
+}
+
+/********************** Social model ***********************/
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+.social-model__marquee-content {
+    animation: scroll 40s linear infinite;
+}
+
+.social-model__button .social-button-blur {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.social-model__button:hover .social-button-blur {
+    opacity: 1;
+}
+
+.social-model__marquee {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.social-model__margue-images {
+    animation: scroll 40s linear infinite;
+}
+
+.social-model__track {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+/********************** CTA *******************************/
+.cta-model__marquee-content {
+    animation: scroll 20s linear infinite;
+}
+
+/********************** Services links *******************************/
+.services-link {
+    transition: all 0.5s ease;
+}
+
+/* Когда навели на враппер — все линки становятся полупрозрачными */
+.services-link__wrapper:hover .services-link {
+    opacity: 0.2;
+}
+
+/* Но тот линк, на который навели, должен стать снова полностью видимым */
+.services-link__wrapper:hover .services-link:hover {
+    opacity: 1;
+}
+
+.services-link__number {
+    transition: all 0.5s ease;
+    color: #000;
+    background-color: transparent;
+}
+
+.services-link:hover .services-link__number {
+    color: #fff;
+    background-color: #000;
+}
+
+/********************** Services video *******************************/
+.services-video__cover {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+#agency-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    position: relative;
+}
+
+/* Изначально видео видно, но кавер его закрывает */
+.services-video__wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* При наведении убираем кавер */
+.services-video__wrapper:hover .services-video__cover {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* (опционально) При ховере можно сделать видео чуть ярче или активнее */
+.services-video__wrapper:hover #agency-video {
+    opacity: 1;
+}
+
+
+/********************** Works Grid *******************************/
+@media only screen and (min-width: 992px) {
+    .works__list .works__item:nth-child(6n+1) {
+        width: 28.1875rem;
+    }
+
+    .works__list .works__item:nth-child(6n+2) {
+        width: 50.25rem;
+    }
+
+    .works__list .works__item:nth-child(6n+3) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+4) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+5) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+6) {
+        width: 64.8125rem;
+    }
+
+    .works__item:nth-child(6n+1) .work-card__video {
+        height: 21.125rem;
+    }
+
+    .works__item:nth-child(6n+2) .work-card__video {
+        height: 31.25rem;
+    }
+
+    .works__item:nth-child(6n+3) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+4) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+5) .work-card__video {
+        height: 17.5rem;
+    }
+
+    .works__item:nth-child(6n+6) .work-card__video {
+        height: 40.5rem;
+    }
+}
+
+.works-more-button__mask {
+    animation: rotateClockwise 12s linear infinite;
+}
+
+.works__more-button:hover .works-more-button__mask {
+    animation-play-state: paused;
+}
+
+/********************** Awards *******************************/
+.awards-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.award-card {
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.award-card:hover .awards-image {
+    opacity: 1;
+}
+
+.award-card:hover {
+    background-color: rgba(244, 244, 242, 1);
+}
+
+.bild-model__cover {
+    animation: rotateClockwise 12s linear infinite;
+}
+
+.bild-model__circle {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+/********************** Modal industries *******************************/
+.modal-industries {
+    display: none;
+}
+
+.modal-industries.is-active {
+    display: block;
+}
+
+.services-video__wrapper {
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
