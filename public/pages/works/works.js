@@ -48,20 +48,24 @@ function worksPageHeroModelAnimation() {
 }
 
 function worksFilters() {
-  const categories = document.querySelectorAll('.work-filter');
+  const items = document.querySelectorAll("[fs-cmsfilter-element='list'] > *"); // все элементы
+  const checkboxes = document.querySelectorAll("[fs-cmsfilter-field='services'] input[type='checkbox']");
 
+  checkboxes.forEach(checkbox => {
+    const value = checkbox.value.trim().toLowerCase();
+    let count = 0;
 
-  categories.forEach(category => {
-      const categoryID = category.getAttribute('data-category-id'); 
-      const worksInCategory = document.querySelectorAll(`.services-tag-name`).length;
-      const counterElement = category.getElementById('worksCounter');
-
-      if (counterElement) {
-          counterElement.textContent = worksInCategory;
+    items.forEach(item => {
+      const categories = item.getAttribute("fs-cmsfilter-field-services")?.toLowerCase() || "";
+      if (categories.includes(value)) {
+        count++;
       }
-      if (worksInCategory === 0) {
-          category.style.display = 'none';
-      }
+    });
+
+    const countSpan = checkbox.closest("label").querySelector(".filter-count");
+    if (countSpan) {
+      countSpan.textContent = `(${count})`;
+    }
   });
 }
 
