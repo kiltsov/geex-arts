@@ -65,8 +65,8 @@ function worksFilters() {
       });
     });
 
-    const wrapper = radio.closest('.works-filter__item');
-    const countSpan = wrapper?.querySelector('.filter-count');
+    // ищем .filter-count НЕ внутри radio, а в его родителе
+    const countSpan = radio.closest('.works-filter__item')?.querySelector('.filter-count');
     if (countSpan) {
       countSpan.textContent = `(${count})`;
     }
