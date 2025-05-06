@@ -49,9 +49,12 @@ function worksPageHeroModelAnimation() {
 
 function worksFilters() {
   const items = document.querySelectorAll(".works__item");
-  const radios = document.querySelectorAll(".work-filter");
+  const filters = document.querySelectorAll(".work-filter-radio"); // это wrapper, не input
 
-  radios.forEach(radio => {
+  filters.forEach(wrapper => {
+    const radio = wrapper.querySelector('input[type="radio"]');
+    if (!radio) return;
+
     const value = radio.value.trim().toLowerCase();
     let count = 0;
 
@@ -65,8 +68,7 @@ function worksFilters() {
       });
     });
 
-    // ищем .filter-count НЕ внутри radio, а в его родителе
-    const countSpan = radio.closest('.works-filter__item')?.querySelector('.filter-count');
+    const countSpan = wrapper.querySelector('.filter-count');
     if (countSpan) {
       countSpan.textContent = `(${count})`;
     }
