@@ -15,6 +15,7 @@ const worksPage = {
     circles: document.querySelectorAll('.works-hero-model__grid-image'),
   },
   sectionWorks: {
+    list: document.querySelector('.works__list'),
     items: document.querySelectorAll('.works__item'),
   },
   videos: document.querySelectorAll('.work-card-video_hover'),
@@ -79,27 +80,30 @@ function worksFilters() {
       countSpan.textContent = `${count}`;
     }
   });
-};
+}
 
 function worksListItemsAnimation() {
+  const list = worksPage.sectionWorks.list;
   const items = worksPage.sectionWorks.items;
 
-  items.forEach((item) => {
-    gsap.set(item, { y: 100, autoAlpha: 0 });
+  gsap.set(items, { y: 300, autoAlpha: 0 });
 
-    gsap.to(item, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: item,
-        start: "top 90%",
-        toggleActions: "play none none none",
-      },
-    });
+  gsap.to(items, {
+    y: 0,
+    autoAlpha: 1,
+    stagger: {
+      each: 0.09,
+      from: "start",
+    },
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: list,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
   });
-};
+}
 
 // ========================================== //
 // ================== INIT ================== //
