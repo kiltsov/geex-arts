@@ -82,7 +82,7 @@ function worksFilters() {
 // ================== INIT ================== //
 // ========================================== //
 
-pageTransitionAnimation(() => {
+pageTransitionAnimation(0.5, () => {
   textFadeIntoAnimation();
   // worksPageHeroModelAnimation();
   // headerMoveIntoViewAnimation();
