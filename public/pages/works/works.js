@@ -56,15 +56,16 @@ function worksFilters() {
     let count = 0;
 
     items.forEach(item => {
-      const field = item.querySelector("[fs-cmsfilter-field='services']");
-      const text = field?.textContent?.toLowerCase() || "";
-
-      if (text.includes(value)) {
-        count++;
-      }
+      const tags = item.querySelectorAll('.services-tag-name');
+      tags.forEach(tag => {
+        const tagText = tag.textContent.trim().toLowerCase();
+        if (tagText === value) {
+          count++;
+        }
+      });
     });
 
-    const countSpan = checkbox.closest("label").querySelector(".filter-count");
+    const countSpan = checkbox.closest('.works-filter__item')?.querySelector('.filter-count');
     if (countSpan) {
       countSpan.textContent = `(${count})`;
     }
