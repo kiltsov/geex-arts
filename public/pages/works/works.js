@@ -101,9 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 if (!isMobile() && window.innerWidth > 992) {
   videoPlayOnHover();
   cursorViewCaseAnimation();
-  document.addEventListener('DOMContentLoaded', () => {
-    socialModelInit();
-  });
 }
 
 // MOBILE FUNCTIONS
