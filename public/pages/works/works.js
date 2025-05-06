@@ -73,7 +73,7 @@ function worksFilters() {
 
     const countSpan = filter.querySelector(".filter-count");
     if (countSpan) {
-      countSpan.textContent = `(${count})`;
+      countSpan.textContent = `${count}`;
     }
   });
 }
