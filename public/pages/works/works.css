@@ -1,3 +1,38 @@
+/*****************************************************************/
+/********************** Animations *******************************/
+/*****************************************************************/
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverceClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
 /********************** Works Grid *******************************/
 @media only screen and (min-width: 992px) {
     .works__list .works__item:nth-child(6n+1) {
@@ -47,4 +82,19 @@
     .works__item:nth-child(6n+6) .work-card__video {
         height: 40.5rem;
     }
+}
+
+/********************** Works Hero model *******************************/
+
+#worksHeroModel_1 {
+    animation: rotateClockwise 10s linear infinite;
+}
+#worksHeroModel_2 {
+    animation: rotateReverceClockwise 12s linear infinite;
+}
+#worksHeroModel_3 {
+    animation: rotateClockwise 17s linear infinite;
+}
+#worksHeroModel_4 {
+    animation: breathe 3s ease-in-out infinite;
 }
