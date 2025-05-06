@@ -47,29 +47,23 @@ function worksPageHeroModelAnimation() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Получаем все вкладки с классом 'works-tab-wrap' (категории)
+function worksFilters() {
   const categories = document.querySelectorAll('.work-filter');
 
-  categories.forEach(category => {
-      // Получаем уникальный идентификатор для каждой категории
-      const categoryID = category.getAttribute('data-category-id'); 
-      
-      // Считаем количество работ, относящихся к данной категории
-      const worksInCategory = document.querySelectorAll(`.works__item[data-category-id="${categoryID}"]`).length;
 
-      // Вставляем число работ в элемент-счетчик рядом с названием категории
+  categories.forEach(category => {
+      const categoryID = category.getAttribute('data-category-id'); 
+      const worksInCategory = document.querySelectorAll(`.services-tag-name`).length;
       const counterElement = category.getElementById('worksCounter');
+
       if (counterElement) {
           counterElement.textContent = worksInCategory;
       }
-
-      // Если количество работ равно 0, скрываем категорию
       if (worksInCategory === 0) {
-          category.style.display = 'none'; // Скрываем категорию
+          category.style.display = 'none';
       }
   });
-});
+}
 
 
 // ========================================== //
@@ -88,7 +82,7 @@ window.addEventListener('load', function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-
+  worksFilters();
 });
 
 // DESKTOP FUNCTIONS
