@@ -82,12 +82,12 @@ function worksFilters() {
 // ================== INIT ================== //
 // ========================================== //
 
-pageTransitionAnimation(0.5, () => {
+pageTransitionAnimation(() => {
   textFadeIntoAnimation();
   // worksPageHeroModelAnimation();
   // headerMoveIntoViewAnimation();
   headerScrollAnimation();
-});
+}, 0.5);
 
 window.addEventListener('load', function () {});
 
