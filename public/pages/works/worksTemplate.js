@@ -14,9 +14,8 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 // ========================================== //
 
 pageTransitionAnimation(() => {
-//   textFadeIntoAnimation();
-  // worksPageHeroModelAnimation();
-  // headerMoveIntoViewAnimation();
+  textFadeIntoAnimation();
+  headerMoveIntoViewAnimation();
   headerScrollAnimation();
 }, 0.5);
 
