@@ -113,3 +113,11 @@
 .cta-model__marquee-content {
     animation: scrollCtaElement 20s linear infinite;
 }
+
+.work-filter-radio {
+    color: #939393;
+}
+
+.work-filter-radio.is-active {
+    color: black;
+}
