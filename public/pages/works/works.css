@@ -114,10 +114,30 @@
     animation: scrollCtaElement 20s linear infinite;
 }
 
+/********************** Filters *******************************/
 .work-filter-radio {
     color: #939393;
 }
 
 .work-filter-radio.is-active {
     color: black;
+}
+
+
+/********************** Button More Works *******************************/
+@keyframes buttonMoreWorksRotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.works-more-button__mask {
+    animation: buttonMoreWorksRotateClockwise 12s linear infinite;
+}
+
+.works__more-button:hover .works-more-button__mask {
+    animation-play-state: paused;
 }
