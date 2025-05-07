@@ -64,3 +64,21 @@
 .cta-model__marquee-content {
     animation: scrollCtaElement 20s linear infinite;
 }
+
+/********************** Button More Works *******************************/
+@keyframes buttonMoreWorksRotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+.works-more-button__mask {
+    animation: buttonMoreWorksRotateClockwise 12s linear infinite;
+}
+
+.works__more-button:hover .works-more-button__mask {
+    animation-play-state: paused;
+}
