@@ -12,14 +12,14 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 // Swiper Template Swiper Big
 function swiperTsbInit() {
   const swiperTsb = new Swiper('.swiper-tsb', {
-    loop: true,
+    loop: false,
     speed: 600,
 
     navigation: {
       nextEl: '[tsb-button=next]',
       prevEl: '[tsb-button=prev]',
     },
-    
+
     on: {
       init(swiper) {
         updatePreviewButtons(swiper);
@@ -40,8 +40,8 @@ function swiperTsbInit() {
     const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
     const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
 
-    const prevButtonImg = document.querySelector('[tsb-button=prev] .image');
-    const nextButtonImg = document.querySelector('[tsb-button=next] .image');
+    const prevButtonImg = document.querySelector('[tsb-button=prev] img');
+    const nextButtonImg = document.querySelector('[tsb-button=next] img');
 
     if (prevSlideImg && prevButtonImg) {
       prevButtonImg.src = prevSlideImg.src;
