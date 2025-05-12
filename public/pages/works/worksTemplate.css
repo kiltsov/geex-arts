@@ -82,3 +82,13 @@
 .works__more-button:hover .works-more-button__mask {
     animation-play-state: paused;
 }
+
+/********************** Thumb Swiper *******************************/
+#thumb-gallery .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+#thumb-gallery .swiper-slide-thumb-active {
+  opacity: 1;
+}

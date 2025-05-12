@@ -53,15 +53,8 @@ function swiperTsbInit() {
 }
 
 function swiperThumbsInit() {
-  const swiperThumbs = new Swiper('.thumbs-swiper', {
-    loop: false,
-    speed: 600,
-    thumbs: {
-      swiper: galleryThumbs,
-    },
-  });
-
-  var galleryThumbs = new Swiper('#thumb-swiper', {
+  // Сначала инициализируем миниатюры
+  const galleryThumbs = new Swiper('#thumb-gallery', {
     spaceBetween: 12,
     slidesPerView: 'auto',
     watchSlidesProgress: true,
@@ -69,6 +62,15 @@ function swiperThumbsInit() {
     grabCursor: true,
     allowTouchMove: false,
     a11y: false,
+  });
+
+  // Затем — основной слайдер
+  const swiperThumbs = new Swiper('.thumbs-swiper', {
+    loop: false,
+    speed: 600,
+    thumbs: {
+      swiper: galleryThumbs,
+    },
   });
 }
 
