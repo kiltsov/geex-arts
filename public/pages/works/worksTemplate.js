@@ -13,10 +13,13 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 function swiperTsbInit() {
   const swiperTsb = new Swiper('.swiper-tsb', {
     loop: true,
+    speed: 600,
+
     navigation: {
       nextEl: '[tsb-button=next]',
       prevEl: '[tsb-button=prev]',
     },
+    
     on: {
       init(swiper) {
         updatePreviewButtons(swiper);
