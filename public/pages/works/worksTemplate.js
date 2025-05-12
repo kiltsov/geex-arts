@@ -53,6 +53,14 @@ function swiperTsbInit() {
 }
 
 function swiperThumbsInit() {
+  const swiperThumbs = new Swiper('.thumbs-swiper', {
+    loop: false,
+    speed: 600,
+    thumbs: {
+      swiper: galleryThumbs,
+    },
+  });
+
   var galleryThumbs = new Swiper('#thumb-swiper', {
     spaceBetween: 12,
     slidesPerView: 'auto',
@@ -61,14 +69,6 @@ function swiperThumbsInit() {
     grabCursor: true,
     allowTouchMove: false,
     a11y: false,
-  });
-
-  const swiperThumbs = new Swiper('.thumbs-swiper', {
-    loop: false,
-    speed: 600,
-    thumbs: {
-      swiper: galleryThumbs,
-    },
   });
 }
 
@@ -86,6 +86,7 @@ window.addEventListener('load', function () {});
 
 document.addEventListener('DOMContentLoaded', () => {
   swiperTsbInit();
+  swiperThumbsInit();
 });
 
 // DESKTOP FUNCTIONS
