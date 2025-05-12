@@ -52,6 +52,26 @@ function swiperTsbInit() {
   }
 }
 
+function swiperThumbsInit() {
+  var galleryThumbs = new Swiper('#thumb-swiper', {
+    spaceBetween: 12,
+    slidesPerView: 'auto',
+    watchSlidesProgress: true,
+    centeredSlides: false,
+    grabCursor: true,
+    allowTouchMove: false,
+    a11y: false,
+  });
+
+  const swiperThumbs = new Swiper('.thumbs-swiper', {
+    loop: false,
+    speed: 600,
+    thumbs: {
+      swiper: galleryThumbs,
+    },
+  });
+}
+
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
