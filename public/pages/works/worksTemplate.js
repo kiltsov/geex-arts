@@ -55,7 +55,7 @@ function swiperTsbInit() {
 function swiperThumbsInit() {
   // Сначала инициализируем миниатюры
   const galleryThumbs = new Swiper('#thumb-gallery', {
-    spaceBetween: 12,
+    spaceBetween: 8,
     slidesPerView: 'auto',
     watchSlidesProgress: true,
     centeredSlides: false,
@@ -66,8 +66,13 @@ function swiperThumbsInit() {
 
   // Затем — основной слайдер
   const swiperThumbs = new Swiper('.thumbs-swiper', {
-    loop: false,
+    spaceBetween: 18,
+    slidesPerView: 1.1,
+
     speed: 600,
+
+    loop: false,
+    
     thumbs: {
       swiper: galleryThumbs,
     },
