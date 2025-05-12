@@ -60,7 +60,7 @@ function swiperThumbsInit() {
     watchSlidesProgress: true,
     centeredSlides: false,
     grabCursor: true,
-    allowTouchMove: false,
+    allowTouchMove: true,
     a11y: false,
   });
 
