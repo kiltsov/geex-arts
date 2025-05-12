@@ -37,8 +37,8 @@ function swiperTsbInit() {
     const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
     const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
 
-    const prevButtonImg = document.querySelector('[tsb-button=prev] img');
-    const nextButtonImg = document.querySelector('[tsb-button=next] img');
+    const prevButtonImg = document.querySelector('[tsb-button=prev] .image');
+    const nextButtonImg = document.querySelector('[tsb-button=next] .image');
 
     if (prevSlideImg && prevButtonImg) {
       prevButtonImg.src = prevSlideImg.src;
