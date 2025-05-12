@@ -9,21 +9,20 @@ import { textFadeIntoAnimation } from '../../components/text-animation/textAnima
 
 import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
 
+// Swiper Template Swiper Big
 function swiperTsbInit() {
-  let swiperTsb;
-
-  swiperTsb = new Swiper('.swiper-tsb', {
+  const swiperTsb = new Swiper('.swiper-tsb', {
     loop: true,
     navigation: {
       nextEl: '[tsb-button=next]',
       prevEl: '[tsb-button=prev]',
     },
     on: {
-      init() {
-        updatePreviewButtons(swiperTsb);
+      init(swiper) {
+        updatePreviewButtons(swiper);
       },
-      slideChange() {
-        updatePreviewButtons(swiperTsb);
+      slideChange(swiper) {
+        updatePreviewButtons(swiper);
       },
     },
   });
@@ -49,6 +48,7 @@ function swiperTsbInit() {
     }
   }
 }
+
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
