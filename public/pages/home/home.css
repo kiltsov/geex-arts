@@ -22,7 +22,6 @@
 }
 
 @keyframes breathe {
-
     0%,
     100% {
         transform: scale(1);
@@ -52,7 +51,6 @@
 .model__link:hover .hero-model__mask-3 {
   animation-play-state: paused;
 }
-
 
 .hero-model-cirle {
     opacity: 0;

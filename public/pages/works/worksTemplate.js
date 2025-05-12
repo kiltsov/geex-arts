@@ -9,6 +9,41 @@ import { textFadeIntoAnimation } from '../../components/text-animation/textAnima
 
 import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
 
+
+const swiperTsb = new Swiper('.swiper-tsb', {
+  loop: true,
+  navigation: {
+    nextEl: '[tsb-button=next]',
+    prevEl: '[tsb-button=prev]',
+  },
+  on: {
+    init: updatePreviewButtons,
+    slideChange: updatePreviewButtons,
+  }
+});
+
+function updatePreviewButtons() {
+  const slides = swiperTsb.slides;
+  const totalSlides = slides.length;
+  const currentIndex = swiperTsb.realIndex;
+
+  const prevIndex = (currentIndex - 1 + swiperTsb.slides.length) % swiperTsb.slides.length;
+  const nextIndex = (currentIndex + 1) % swiperTsb.slides.length;
+
+  const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
+  const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
+
+  const prevButtonImg = document.querySelector('[tsb-button=prev] img');
+  const nextButtonImg = document.querySelector('[tsb-button=next] img');
+
+  if (prevSlideImg && prevButtonImg) {
+    prevButtonImg.src = prevSlideImg.src;
+  }
+  if (nextSlideImg && nextButtonImg) {
+    nextButtonImg.src = nextSlideImg.src;
+  }
+}
+
 // ========================================== //
 // ================== INIT ================== //
 // ========================================== //
