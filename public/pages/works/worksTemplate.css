@@ -96,30 +96,33 @@
 @media only screen and (min-width: 992px) {
   .tbg-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 12-колоночная сетка */
-    grid-template-rows: repeat(6, minmax(100px, auto));
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(336px, auto);
     gap: 20px;
     position: relative;
   }
 
-  /* Пример расположения айтемов */
+  /* Первый айтем (большой) */
   .tbg-grid .tbg-grid__item:nth-child(4n + 1) {
-    grid-column: 1 / span 7;
-    grid-row: 1 / span 3;
+    grid-column: 1 / span 9;
+    grid-row: span 2;
   }
 
+  /* Второй айтем (справа вверху) */
   .tbg-grid .tbg-grid__item:nth-child(4n + 2) {
-    grid-column: 8 / span 5;
-    grid-row: 2 / span 2;
+    grid-column: 10 / span 3;
+    grid-row: 1 / span 1;
   }
 
+  /* Третий айтем (слева снизу) */
   .tbg-grid .tbg-grid__item:nth-child(4n + 3) {
-    grid-column: 1 / span 5;
-    grid-row: 4 / span 2;
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 1;
   }
 
+  /* Четвёртый айтем (большой снизу) */
   .tbg-grid .tbg-grid__item:nth-child(4n + 4) {
-    grid-column: 6 / span 7;
-    grid-row: 5 / span 2;
+    grid-column: 4 / span 9;
+    grid-row: 3 / span 2;
   }
 }
