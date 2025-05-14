@@ -17,6 +17,7 @@ function buildFormInit() {
 
   let selectedPrompt = '';
   let selectedIntegration = '';
+  buildForm.submit.classList.add('is-disable');
 
   // Prompts
   const prompts = {
@@ -50,11 +51,13 @@ function buildFormInit() {
 
   function updateHiddenInput() {
     const prompt = buildForm.input.value.trim();
+    const submit = buildForm.submit;
     if (!buildForm.hiddenInput) return;
 
     if (selectedIntegration && prompt) {
       const promptEncoded = encodeURIComponent(prompt);
       buildForm.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
+      submit.classList.remove('is-disable');
     } else {
       buildForm.hiddenInput.value = '';
     }
