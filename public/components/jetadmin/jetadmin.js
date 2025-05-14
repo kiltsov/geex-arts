@@ -119,13 +119,10 @@ function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
     spaceBetween: 8,
     slidesPerView: 5,
-    slidesPerGroup: 1,
-
+    slidesPerGroup: 5,
     loop: true,
-    // loopFillGroupWithBlank: true,
-
+    loopedSlides: 10, // общее количество слайдов должно быть кратно этому числу
     speed: 600,
-
     navigation: {
       nextEl: '[build-form=next]',
     },
