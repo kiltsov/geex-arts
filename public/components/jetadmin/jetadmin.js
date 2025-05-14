@@ -2,15 +2,14 @@ const buildForm = {
   form: document.querySelector('.wf-form-Build-Form'),
   submit: document.getElementById('buildFormSubmit'),
   input: document.getElementById('buildFormInput'),
+    hiddenInput: document.getElementById('buildFormHiddenInput'),
 
   radioPromptAdmin: document.getElementById('promptAdmin'),
   radioPromptCRM: document.getElementById('radioPromptCRM'),
   radioPromptPortal: document.getElementById('promptPortal'),
   radioPromptInventory: document.getElementById('promptInventory'),
 
-  radioIntegration: document.querySelectorAll('.build-form_radio-integration'),
-
-  hiddenInput: document.getElementById('buildFormHiddenInput'),
+  radioIntegration: document.querySelectorAll('.build-form__radio-input-integ'),
 };
 
 const BASE_URL = 'https://app.jetadmin.io/builder/';
