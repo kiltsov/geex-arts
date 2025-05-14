@@ -117,7 +117,7 @@ function buildFormInit() {
 
 function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
-    spaceBetween: 'auto',
+    spaceBetween: 8,
     slidesPerView: 5,
     slidesPerGroup: 5,
 
