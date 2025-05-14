@@ -17,7 +17,8 @@ function buildFormInit() {
 
   let selectedPrompt = '';
   let selectedIntegration = '';
-  buildForm.submit.classList.add('is-disable');
+  inputChange();
+  // buildForm.submit.classList.add('is-disable');
 
   // Prompts
   const prompts = {
@@ -81,13 +82,13 @@ function buildFormInit() {
   });
 
   function inputChange() {
-  buildForm.input.addEventListener('input', () => {
-    const hasValue = buildForm.input.value.trim().length > 0;
-    const hasIntegration = selectedIntegration.length > 0;
+    buildForm.input.addEventListener('input', () => {
+      const hasValue = buildForm.input.value.trim().length > 0;
+      const hasIntegration = selectedIntegration.length > 0;
 
-    buildForm.submit.classList.toggle('is-disable', !(hasValue && hasIntegration));
-  });
-}
+      buildForm.submit.classList.toggle('is-disable', !(hasValue && hasIntegration));
+    });
+  }
 
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
