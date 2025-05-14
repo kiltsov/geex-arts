@@ -80,6 +80,10 @@ function buildFormInit() {
     window.location.href = `${BASE_URL}${query}`;
   });
 
+  buildForm.input.addEventListener('input', () => {
+    buildForm.submit.classList.add('is-disable');
+  })
+
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
     radio.addEventListener('change', () => {
