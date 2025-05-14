@@ -8,7 +8,7 @@ const buildForm = {
   radioPromptPortal: document.getElementById('promptPortal'),
   radioPromptInventory: document.getElementById('promptInventory'),
 
-  radioData: document.querySelectorAll('.build-form_data-radio'),
+  radioData: document.querySelectorAll('.build-form_radio-integration'),
 
   hiddenInput: document.getElementById('buildFormHiddenInput'),
 };
