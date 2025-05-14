@@ -7,10 +7,19 @@ const buildForm = {
   radioPromptCRM: document.getElementById('radioPromptCRM'),
   radiopromptPortal: document.getElementById('promptPortal'),
   radioPromptInventory: document.getElementById('promptInventory'),
+
+  radioData: document.querySelectorAll('.build-form_data-radio'), // Радиокнопки из CMS
 }
 
-let radioPrompts;
+let radioPrompts; // Group
 let radioDataSource; // Group
+
+
+
+
+//
+//
+//
 
 function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
