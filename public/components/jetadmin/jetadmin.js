@@ -1,18 +1,61 @@
 const buildForm = {
-  form: document.getElementById('.wf-form-Build-Form'),
+  form: document.querySelector('.wf-form-Build-Form'),
   submit: document.getElementById('buildFormSubmit'),
   input: document.getElementById('buildFormInput'),
 
   radioPromptAdmin: document.getElementById('promptAdmin'),
   radioPromptCRM: document.getElementById('radioPromptCRM'),
-  radiopromptPortal: document.getElementById('promptPortal'),
+  radioPromptPortal: document.getElementById('promptPortal'),
   radioPromptInventory: document.getElementById('promptInventory'),
 
-  radioData: document.querySelectorAll('.build-form_data-radio'), // Радиокнопки из CMS
-}
+  radioData: document.querySelectorAll('.build-form_data-radio'),
+};
 
-let radioPrompts; // Group
-let radioDataSource; // Group
+const BASE_URL = 'https://app.jetadmin.io/builder/new_app_34/prod/assistant/create';
+
+let selectedPrompt = '';
+let selectedSlug = '';
+
+// Промпты (можно заменить на любые строки)
+const prompts = {
+  promptAdmin: 'Create an admin panel',
+  radioPromptCRM: 'Build a CRM dashboard',
+  promptPortal: 'Build a client portal',
+  promptInventory: 'Create an inventory tracker',
+};
+
+// Обработчики для первой группы радиокнопок
+[
+  buildForm.radioPromptAdmin,
+  buildForm.radioPromptCRM,
+  buildForm.radioPromptPortal,
+  buildForm.radioPromptInventory,
+].forEach(radio => {
+  if (radio) {
+    radio.addEventListener('change', () => {
+      selectedPrompt = prompts[radio.id] || '';
+      buildForm.input.value = selectedPrompt;
+    });
+  }
+});
+
+// Обработчик для радиокнопок из CMS (с dynamic id/slug)
+buildForm.radioData.forEach(radio => {
+  radio.addEventListener('change', () => {
+    selectedSlug = radio.id; // id = slug
+  });
+});
+
+// Сабмит формы
+buildForm.submit.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const promptEncoded = encodeURIComponent(buildForm.input.value.trim());
+  const url = `${BASE_URL}/${selectedSlug}?prompt=${promptEncoded}`;
+
+  console.log('Redirecting to:', url);
+  window.location.href = url;
+});
 
 
 
