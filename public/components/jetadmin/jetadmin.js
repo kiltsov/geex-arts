@@ -126,16 +126,18 @@ function splideBuildInit() {
     arrows: true, // отключи если кастомные стрелки
     breakpoints: {
       768: {
-        perPage: 2,
-        perMove: 2,
+        perPage: 5,
+        perMove: 5,
       },
       480: {
-        perPage: 1,
-        perMove: 1,
+        perPage: 5,
+        perMove: 5,
       },
     },
   }).mount();
 }
 
-buildFormInit();
-splideBuildInit();
+document.addEventListener('DOMContentLoaded', () => {
+  buildFormInit();
+  splideBuildInit();
+});
