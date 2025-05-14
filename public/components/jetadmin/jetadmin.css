@@ -29,11 +29,3 @@
 	y: '100%';
 	opacity: 0;
 }
-
-.splide__slide .integration__pop-up {
-	opacity: 0;
-}
-
-.splide__slide:hover .integration__pop-up {
-	opacity: 1;
-}

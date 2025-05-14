@@ -94,6 +94,19 @@ function buildFormInit() {
   buildForm.input.addEventListener('cut', handleInputChange);
   buildForm.input.addEventListener('change', handleInputChange);
 
+  document.addEventListener('DOMContentLoaded', function() {
+  const textarea = document.getElementById('buildFormInput');
+  const submitButton = document.querySelector('.build-form_submit');
+
+  function updateButtonState() {
+    submitButton.disabled = textarea.value.trim().length === 0;
+  }
+
+  textarea.addEventListener('input', updateButtonState);
+  textarea.addEventListener('paste', updateButtonState);
+  textarea.addEventListener('cut', updateButtonState);
+});
+
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
     radio.addEventListener('change', () => {
