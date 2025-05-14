@@ -1,3 +1,17 @@
+const buildForm = {
+  form: document.getElementById('.wf-form-Build-Form'),
+  submit: document.getElementById('buildFormSubmit'),
+  input: document.getElementById('buildFormInput'),
+
+  radioPromptAdmin: document.getElementById('promptAdmin'),
+  radioPromptCRM: document.getElementById('radioPromptCRM'),
+  radiopromptPortal: document.getElementById('promptPortal'),
+  radioPromptInventory: document.getElementById('promptInventory'),
+}
+
+let radioPrompts;
+let radioDataSource; // Group
+
 function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
     spaceBetween: 8,
@@ -50,3 +64,6 @@ function swiperBuildInit() {
 }
 
 swiperBuildInit();
+
+
+
