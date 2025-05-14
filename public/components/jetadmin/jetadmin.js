@@ -74,7 +74,7 @@ buildForm.submit.addEventListener('click', (e) => {
   console.log('Final query:', query);
 
   // Переход
-  // window.location.href = `${BASE_URL}${query}`;
+  window.location.href = `${BASE_URL}${query}`;
 });
 
 document.querySelectorAll('.build-form__radio-input').forEach(radio => {
