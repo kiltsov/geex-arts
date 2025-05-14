@@ -121,7 +121,9 @@ function swiperBuildInit() {
     slidesPerView: 5,
     slidesPerGroup: 5,
 
-    loop: true,
+    loop: false,
+    loopFillGroupWithBlank: true, // ⚠️ вот это важно
+
     speed: 600,
 
     navigation: {
