@@ -119,7 +119,7 @@ function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
     spaceBetween: 8,
     slidesPerView: 5,
-    slidesPerGroup: 5,
+    slidesPerGroup: 1,
 
     loop: true,
     // loopFillGroupWithBlank: true,
