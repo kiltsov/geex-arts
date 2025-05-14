@@ -39,6 +39,7 @@ function buildFormInit() {
         selectedPrompt = prompts[radio.id] || '';
         buildForm.input.value = selectedPrompt;
         updateHiddenInput();
+        inputChange();
       });
     }
   });
@@ -79,16 +80,14 @@ function buildFormInit() {
     window.location.href = `${BASE_URL}${query}`;
   });
 
+  function inputChange() {
   buildForm.input.addEventListener('input', () => {
     const hasValue = buildForm.input.value.trim().length > 0;
     const hasIntegration = selectedIntegration.length > 0;
 
-    if (hasValue && hasIntegration) {
-      buildForm.submit.classList.remove('is-disable');
-    } else {
-      buildForm.submit.classList.add('is-disable');
-    }
+    buildForm.submit.classList.toggle('is-disable', !(hasValue && hasIntegration));
   });
+}
 
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
