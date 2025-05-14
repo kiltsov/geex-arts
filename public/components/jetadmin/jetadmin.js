@@ -77,7 +77,7 @@ function buildFormInit() {
     console.log('Final query:', query);
 
     // Переход
-    window.location.href = `${BASE_URL}${query}`;
+    // window.location.href = `${BASE_URL}${query}`;
   });
 
   // Обработчик для всех радиокнопок
