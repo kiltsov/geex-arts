@@ -1,1 +1,1 @@
-console,log('jetadmin script');
+console.log('jet admin script');
