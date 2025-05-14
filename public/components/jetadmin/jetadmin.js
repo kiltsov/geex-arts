@@ -54,7 +54,8 @@ buildForm.submit.addEventListener('click', (e) => {
   const url = `${BASE_URL}/${selectedSlug}?prompt=${promptEncoded}`;
 
   console.log('Redirecting to:', url);
-  window.location.href = url;
+
+  // window.location.href = url;
 });
 
 
