@@ -129,12 +129,12 @@ function splideBuildInit() {
     arrows: false,
     breakpoints: {
       768: {
-        perPage: 5,
-        perMove: 5,
+        perPage: 9,
+        perMove: 9,
       },
       480: {
-        perPage: 5,
-        perMove: 5,
+        perPage: 7,
+        perMove: 7,
       },
     },
   });
