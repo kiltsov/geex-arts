@@ -77,6 +77,17 @@ buildForm.submit.addEventListener('click', (e) => {
   // window.location.href = `${BASE_URL}${query}`;
 });
 
+document.querySelectorAll('.build-form__radio-input').forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.build-form_radio').forEach(label => {
+      label.classList.remove('is-active');
+    });
+    if (radio.checked) {
+      radio.closest('.build-form_radio').classList.add('is-active');
+    }
+  });
+});
+
 //
 //
 //
