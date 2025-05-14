@@ -88,6 +88,17 @@ document.querySelectorAll('.build-form__radio-input').forEach(radio => {
   });
 });
 
+document.querySelectorAll('.build-form__radio-input').forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.build-form_radio-integration').forEach(label => {
+      label.classList.remove('is-active');
+    });
+    if (radio.checked) {
+      radio.closest('.build-form_radio-integration').classList.add('is-active');
+    }
+  });
+});
+
 //
 //
 //
