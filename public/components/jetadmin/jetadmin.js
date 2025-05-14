@@ -134,8 +134,9 @@ function splideBuildInit() {
         perMove: 5,
       },
     },
-  }).mount();
+  });
 
+  splide.mount();
   document.querySelector('[build-form=next]').addEventListener('click', () => splide.go('>'));
 }
 
