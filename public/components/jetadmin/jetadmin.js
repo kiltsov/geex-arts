@@ -43,7 +43,7 @@ const prompts = {
 
 buildForm.radioIntegration.forEach(radio => {
   radio.addEventListener('change', () => {
-    selectedIntegration = radio.dataset.name || '';
+    selectedIntegration = radio.value || '';
     updateHiddenInput();
   });
 });
