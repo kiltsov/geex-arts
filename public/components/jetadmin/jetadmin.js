@@ -115,19 +115,27 @@ function buildFormInit() {
   });
 }
 
-function swiperBuildInit() {
-  const swiperBuild = new Swiper('#swiperBuild', {
-    spaceBetween: 8,
-    slidesPerView: 5,
-    slidesPerGroup: 5,
-    loop: true,
-    loopedSlides: 10, // общее количество слайдов должно быть кратно этому числу
+function splideBuildInit() {
+  new Splide('#splideBuild', {
+    type: 'slide',
+    perPage: 5,
+    perMove: 5,
+    gap: '8px',
     speed: 600,
-    navigation: {
-      nextEl: '[build-form=next]',
+    pagination: false,
+    arrows: true, // отключи если кастомные стрелки
+    breakpoints: {
+      768: {
+        perPage: 2,
+        perMove: 2,
+      },
+      480: {
+        perPage: 1,
+        perMove: 1,
+      },
     },
-  });
+  }).mount();
 }
 
 buildFormInit();
-swiperBuildInit();
+splideBuildInit();
