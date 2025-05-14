@@ -1,15 +1,15 @@
 function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
-    spaceBetween: 4,
+    spaceBetween: 8,
     slidesPerView: 5,
     slidesPerGroup: 5,
 
-    observer: true,
-    observeParents: true,
+    // observer: true,
+    // observeParents: true,
 
-    grabCursor: true,
-    a11y: false,
-    allowTouchMove: true,
+    // grabCursor: true,
+    // a11y: false,
+    // allowTouchMove: true,
 
     loop: true,
 	speed: 600,
