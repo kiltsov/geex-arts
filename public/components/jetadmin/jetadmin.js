@@ -5,7 +5,6 @@ function buildFormInit() {
     submitWrapper: document.getElementById('buildFormSubmitWrapper'),
     submit: document.getElementById('buildFormSubmit'),
 
-
     input: document.getElementById('buildFormInput'),
     hiddenInput: document.getElementById('buildFormHiddenInput'),
 
@@ -31,7 +30,7 @@ function buildFormInit() {
     promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
   };
 
-  // 
+  //
   [
     buildForm.radioPromptAdmin,
     buildForm.radioPromptCRM,
@@ -84,28 +83,21 @@ function buildFormInit() {
     window.location.href = `${BASE_URL}${query}`;
   });
 
-  function handleInputChange() {
-    textarea = buildForm.input;
-    const isValid = textarea.value.trim().length > 0;
-    document.querySelector('.build-form_submit').disabled = !isValid;
+  buildForm.input.addEventListener('input', () => {
+  if (buildForm.input.value.trim().length > 0) {
+    buildForm.submitWrapper.classList.remove('is-disable');
   }
-  buildForm.input.addEventListener('input', handleInputChange);
-  buildForm.input.addEventListener('paste', handleInputChange);
-  buildForm.input.addEventListener('cut', handleInputChange);
-  buildForm.input.addEventListener('change', handleInputChange);
-
-  document.addEventListener('DOMContentLoaded', function() {
-  const textarea = document.getElementById('buildFormInput');
-  const submitButton = document.querySelector('.build-form_submit');
-
-  function updateButtonState() {
-    submitButton.disabled = textarea.value.trim().length === 0;
-  }
-
-  textarea.addEventListener('input', updateButtonState);
-  textarea.addEventListener('paste', updateButtonState);
-  textarea.addEventListener('cut', updateButtonState);
 });
+
+  // function handleInputChange() {
+  //   textarea = buildForm.input;
+  //   const isValid = textarea.value.trim().length > 0;
+  //   document.querySelector('.build-form_submit').disabled = !isValid;
+  // }
+  // buildForm.input.addEventListener('input', handleInputChange);
+  // buildForm.input.addEventListener('paste', handleInputChange);
+  // buildForm.input.addEventListener('cut', handleInputChange);
+  // buildForm.input.addEventListener('change', handleInputChange);
 
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
