@@ -19,13 +19,13 @@
 	border-color: #2B50ED;
 }
 
-.button.buld-form-submit {
+.build-form-submit {
 	transition: all 1s ease;
 	y: '0%';
 	opacity: 1;
 }
 
-.button.buld-form-submit.is-disable {
+.build-form-submit.is-disable {
 	y: '100%';
 	opacity: 0;
 }

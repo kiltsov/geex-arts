@@ -1,7 +1,11 @@
 function buildFormInit() {
   const buildForm = {
     form: document.querySelector('.wf-form-Build-Form'),
+
+    submitWrapper: document.getElementById('buildFormSubmitWrapper'),
     submit: document.getElementById('buildFormSubmit'),
+
+
     input: document.getElementById('buildFormInput'),
     hiddenInput: document.getElementById('buildFormHiddenInput'),
 
@@ -17,7 +21,7 @@ function buildFormInit() {
 
   let selectedPrompt = '';
   let selectedIntegration = '';
-  buildForm.submit.classList.add('is-disable');
+  buildForm.submitWrapper.classList.add('is-disable');
 
   // Prompts
   const prompts = {
@@ -39,7 +43,7 @@ function buildFormInit() {
         selectedPrompt = prompts[radio.id] || '';
         buildForm.input.value = selectedPrompt;
         updateHiddenInput();
-        buildForm.submit.classList.remove('is-disable');
+        buildForm.submitWrapper.classList.remove('is-disable');
       });
     }
   });
