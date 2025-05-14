@@ -80,9 +80,15 @@ function buildFormInit() {
     window.location.href = `${BASE_URL}${query}`;
   });
 
-  buildForm.input.addEventListener('input', () => {
-    buildForm.submit.classList.add('is-disable');
-  })
+  function handleInputChange() {
+    textarea = buildForm.input;
+    const isValid = textarea.value.trim().length > 0;
+    document.querySelector('.build-form_submit').disabled = !isValid;
+  }
+  buildForm.input.addEventListener('input', handleInputChange);
+  buildForm.input.addEventListener('paste', handleInputChange);
+  buildForm.input.addEventListener('cut', handleInputChange);
+  buildForm.input.addEventListener('change', handleInputChange);
 
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
