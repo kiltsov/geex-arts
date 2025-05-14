@@ -6,14 +6,16 @@
 	border-color: rgba(255, 255, 255, 0.09);
 }
 
+.build-form__radio-input:checked + .build-form__cover {
+	background-color: rgba(43, 80, 237, 1);
+}
+
+
+
 .build-form_radio-integration {
 	border-color: rgba(255, 255, 255, 0.09);
 }
 
-.build-form__radio-input:checked + .build-form__cover {
-	background-color: rgba(43, 80, 237, 1);
-}
-
-.build-form__radio-input:checked + .build-form__cover {
-	background-color: rgba(43, 80, 237, 1);
+.build-form__radio-input:checked .build-form_radio-integration {
+	border-color: rgba(43, 80, 237, 1);
 }

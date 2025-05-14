@@ -8,15 +8,15 @@ const buildForm = {
   radioPromptPortal: document.getElementById('promptPortal'),
   radioPromptInventory: document.getElementById('promptInventory'),
 
-  radioData: document.querySelectorAll('.build-form_radio-integration'),
+  radioIntegration: document.querySelectorAll('.build-form_radio-integration'),
 
   hiddenInput: document.getElementById('buildFormHiddenInput'),
 };
 
-const BASE_URL = 'https://app.jetadmin.io/builder/new_app_34/prod/assistant/create';
+const BASE_URL = 'https://app.jetadmin.io/builder/';
 
 let selectedPrompt = '';
-let selectedSlug = '';
+let selectedIntegration = '';
 
 // Prompts
 const prompts = {
@@ -41,20 +41,20 @@ const prompts = {
   }
 });
 
-buildForm.radioData.forEach(radio => {
+buildForm.radioIntegration.forEach(radio => {
   radio.addEventListener('change', () => {
-    selectedSlug = radio.dataset.name || '';
+    selectedIntegration = radio.dataset.name || '';
     updateHiddenInput();
   });
 });
 
 function updateHiddenInput() {
   const prompt = buildForm.input.value.trim();
-  if (!buildForm.hiddenInput) return; // Защита
+  if (!buildForm.hiddenInput) return;
 
-  if (selectedSlug && prompt) {
+  if (selectedIntegration && prompt) {
     const promptEncoded = encodeURIComponent(prompt);
-    buildForm.hiddenInput.value = `/${selectedSlug}?prompt=${promptEncoded}`;
+    buildForm.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
   } else {
     buildForm.hiddenInput.value = '';
   }
@@ -65,16 +65,15 @@ buildForm.submit.addEventListener('click', (e) => {
 
   const prompt = buildForm.input.value.trim();
   const promptEncoded = encodeURIComponent(prompt);
-  const query = `/${selectedSlug}?prompt=${promptEncoded}`;
+  const query = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
 
-  // Пишем в скрытый инпут
   buildForm.hiddenInput.value = query;
 
-  console.log('Slug:', selectedSlug);
+  console.log('Integration:', selectedIntegration);
   console.log('Prompt:', prompt);
   console.log('Final query:', query);
 
-  // Переход (можно включить при необходимости)
+  // Переход
   // window.location.href = `${BASE_URL}${query}`;
 });
 
@@ -134,3 +133,5 @@ function swiperBuildInit() {
 }
 
 swiperBuildInit();
+
+
