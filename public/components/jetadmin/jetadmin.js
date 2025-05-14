@@ -1,28 +1,19 @@
 function buildFormInit() {
-  const buildForm = {
+  // Конфигурация элементов формы
+  const formConfig = {
     form: document.querySelector('.wf-form-Build-Form'),
-
     submitWrapper: document.getElementById('buildFormSubmitWrapper'),
     submit: document.getElementById('buildFormSubmit'),
-
     input: document.getElementById('buildFormInput'),
     hiddenInput: document.getElementById('buildFormHiddenInput'),
-
     radioPromptAdmin: document.getElementById('promptAdmin'),
     radioPromptCRM: document.getElementById('radioPromptCRM'),
     radioPromptPortal: document.getElementById('promptPortal'),
     radioPromptInventory: document.getElementById('promptInventory'),
-
     radioIntegration: document.querySelectorAll('.build-form__radio-input-integ'),
   };
 
   const BASE_URL = 'https://app.jetadmin.io/builder/';
-
-  let selectedPrompt = '';
-  let selectedIntegration = '';
-  buildForm.submitWrapper.classList.add('is-disable');
-
-  // Prompts
   const prompts = {
     promptAdmin: 'Admin panel on top of my data for managing content',
     radioPromptCRM: 'Custom CRM – Custom CRM on top of my data for managing leads and customer relationships',
@@ -30,113 +21,88 @@ function buildFormInit() {
     promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
   };
 
-  //
-  [
-    buildForm.radioPromptAdmin,
-    buildForm.radioPromptCRM,
-    buildForm.radioPromptPortal,
-    buildForm.radioPromptInventory,
-  ].forEach((radio) => {
-    if (radio) {
-      radio.addEventListener('change', () => {
-        selectedPrompt = prompts[radio.id] || '';
-        buildForm.input.value = selectedPrompt;
-        updateHiddenInput();
-        buildForm.submitWrapper.classList.remove('is-disable');
-      });
-    }
-  });
+  let selectedPrompt = '';
+  let selectedIntegration = '';
+  formConfig.submitWrapper.classList.add('is-disable');
 
-  buildForm.radioIntegration.forEach((radio) => {
-    radio.addEventListener('change', () => {
-      selectedIntegration = radio.value || '';
-      updateHiddenInput();
-    });
-  });
+  // Общие функции
+  const updateUIState = () => {
+    const hasInput = formConfig.input.value.trim().length > 0;
+    formConfig.submitWrapper.classList.toggle('is-disable', !hasInput);
+  };
 
-  function updateHiddenInput() {
-    const prompt = buildForm.input.value.trim();
-    if (!buildForm.hiddenInput) return;
-
+  const updateHiddenInput = () => {
+    if (!formConfig.hiddenInput) return;
+    
+    const prompt = formConfig.input.value.trim();
     if (selectedIntegration && prompt) {
       const promptEncoded = encodeURIComponent(prompt);
-      buildForm.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
+      formConfig.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
     } else {
-      buildForm.hiddenInput.value = '';
+      formConfig.hiddenInput.value = '';
     }
-  }
+  };
 
-  buildForm.submit.addEventListener('click', (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    const prompt = buildForm.input.value.trim();
+    const prompt = formConfig.input.value.trim();
     const promptEncoded = encodeURIComponent(prompt);
     const query = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
 
-    buildForm.hiddenInput.value = query;
-
-    console.log('Integration:', selectedIntegration);
-    console.log('Prompt:', prompt);
-    console.log('Final query:', query);
-
-    // Переход
+    formConfig.hiddenInput.value = query;
+    console.log({ Integration: selectedIntegration, Prompt: prompt, FinalQuery: query });
+    
     window.location.href = `${BASE_URL}${query}`;
-  });
+  };
 
-  buildForm.input.addEventListener('input', () => {
-    if (buildForm.input.value.trim().length > 0) {
-      buildForm.submitWrapper.classList.remove('is-disable');
-    } else {
-      buildForm.submitWrapper.classList.add('is-disable');
+  const handleRadioChange = (e) => {
+    const radio = e.target;
+    const isPrompt = radio.name === 'radioPrompts';
+    const isIntegration = radio.name === 'selectedIntegration';
+    const container = radio.closest(isPrompt ? '.build-form_radio' : '.build-form_radio-integration');
+
+    // Управление классами активности
+    if (container) {
+      const activeClass = isPrompt ? '.build-form_radio.is-active' : '.build-form_radio-integration.is-active';
+      document.querySelectorAll(activeClass).forEach(el => el.classList.remove('is-active'));
+      container.classList.add('is-active');
     }
-  });
 
-  // function handleInputChange() {
-  //   textarea = buildForm.input;
-  //   const isValid = textarea.value.trim().length > 0;
-  //   document.querySelector('.build-form_submit').disabled = !isValid;
-  // }
-  // buildForm.input.addEventListener('input', handleInputChange);
-  // buildForm.input.addEventListener('paste', handleInputChange);
-  // buildForm.input.addEventListener('cut', handleInputChange);
-  // buildForm.input.addEventListener('change', handleInputChange);
+    // Обновление значений
+    if (isPrompt) {
+      selectedPrompt = prompts[radio.id] || '';
+      formConfig.input.value = selectedPrompt;
+    } else if (isIntegration) {
+      selectedIntegration = radio.value.trim();
+    }
 
-  // Обработчик для всех радиокнопок
-  document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
-    radio.addEventListener('change', () => {
-      const isPrompt = radio.name === 'radioPrompts';
-      const isIntegration = radio.name === 'selectedIntegration';
+    updateHiddenInput();
+    updateUIState();
+  };
 
-      // Сброс классов активности
-      if (isPrompt) {
-        document.querySelectorAll('.build-form_radio.is-active').forEach((el) => el.classList.remove('is-active'));
-      }
-
-      if (isIntegration) {
-        document
-          .querySelectorAll('.build-form_radio-integration.is-active')
-          .forEach((el) => el.classList.remove('is-active'));
-      }
-
-      // Добавление класса активности
-      const container = radio.closest('.build-form_radio') || radio.closest('.build-form_radio-integration');
-      if (container) {
-        container.classList.add('is-active');
-      }
-
-      // Обновление значений
-      if (isPrompt) {
-        selectedPrompt = prompts[radio.value] || '';
-        buildForm.input.value = selectedPrompt;
-      }
-
-      if (isIntegration) {
-        selectedIntegration = radio.value.trim();
-      }
-
-      updateHiddenInput();
+  // Инициализация обработчиков событий
+  const initEventListeners = () => {
+    // Обработчики для радиокнопок prompt
+    [
+      formConfig.radioPromptAdmin,
+      formConfig.radioPromptCRM,
+      formConfig.radioPromptPortal,
+      formConfig.radioPromptInventory,
+    ].forEach(radio => {
+      radio?.addEventListener('change', handleRadioChange);
     });
-  });
+
+    // Обработчики для радиокнопок интеграции
+    formConfig.radioIntegration.forEach(radio => {
+      radio.addEventListener('change', handleRadioChange);
+    });
+
+    // Общие обработчики
+    formConfig.submit.addEventListener('click', handleFormSubmit);
+    formConfig.input.addEventListener('input', updateUIState);
+  };
+
+  initEventListeners();
 }
 
 function splideBuildInit() {
