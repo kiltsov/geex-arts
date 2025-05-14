@@ -16,12 +16,12 @@ const BASE_URL = 'https://app.jetadmin.io/builder/new_app_34/prod/assistant/crea
 let selectedPrompt = '';
 let selectedSlug = '';
 
-// Промпты (можно заменить на любые строки)
+// Prompts
 const prompts = {
-  promptAdmin: 'Create an admin panel',
-  radioPromptCRM: 'Build a CRM dashboard',
-  promptPortal: 'Build a client portal',
-  promptInventory: 'Create an inventory tracker',
+  promptAdmin: 'Admin panel on top of my data for managing content',
+  radioPromptCRM: 'Custom CRM – Custom CRM on top of my data for managing leads and customer relationships',
+  promptPortal: 'Customer Portal – Customer portal on top of my data for secure self-service access',
+  promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
 };
 
 // Обработчики для первой группы радиокнопок
