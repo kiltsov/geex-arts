@@ -9,6 +9,8 @@ const buildForm = {
   radioPromptInventory: document.getElementById('promptInventory'),
 
   radioData: document.querySelectorAll('.build-form_data-radio'),
+
+  hiddenInput: document.getElementById('buildFormHiddenInput'),
 };
 
 const BASE_URL = 'https://app.jetadmin.io/builder/new_app_34/prod/assistant/create';
@@ -30,11 +32,12 @@ const prompts = {
   buildForm.radioPromptCRM,
   buildForm.radioPromptPortal,
   buildForm.radioPromptInventory,
-].forEach(radio => {
+].forEach((radio) => {
   if (radio) {
     radio.addEventListener('change', () => {
       selectedPrompt = prompts[radio.id] || '';
       buildForm.input.value = selectedPrompt;
+      updateHiddenInput();
     });
   }
 });
@@ -42,24 +45,40 @@ const prompts = {
 // Обработчик для радиокнопок из CMS (с dynamic id/slug)
 buildForm.radioData.forEach(radio => {
   radio.addEventListener('change', () => {
-    selectedSlug = radio.id; // id = slug
+    selectedSlug = radio.id;
+    updateHiddenInput();
   });
 });
 
+function updateHiddenInput() {
+  const prompt = buildForm.input.value.trim();
+  if (selectedSlug && prompt) {
+    const promptEncoded = encodeURIComponent(prompt);
+    buildForm.hiddenInput.value = `/${selectedSlug}?prompt=${promptEncoded}`;
+  } else {
+    buildForm.hiddenInput.value = '';
+  }
+}
+
+// Сабмит формы
 // Сабмит формы
 buildForm.submit.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const promptEncoded = encodeURIComponent(buildForm.input.value.trim());
-  const url = `${BASE_URL}/${selectedSlug}?prompt=${promptEncoded}`;
+  const prompt = buildForm.input.value.trim();
+  const promptEncoded = encodeURIComponent(prompt);
+  const query = `/${selectedSlug}?prompt=${promptEncoded}`;
 
-  console.log('Redirecting to:', url);
+  // Пишем в скрытый инпут
+  buildForm.hiddenInput.value = query;
 
-  // window.location.href = url;
+  console.log('📌 Выбранный slug:', selectedSlug);
+  console.log('✏️ Выбранный prompt:', prompt);
+  console.log('📎 Финальная query строка:', query);
+
+  // Переход (можно включить при необходимости)
+  // window.location.href = `${BASE_URL}${query}`;
 });
-
-
-
 
 //
 //
@@ -79,11 +98,11 @@ function swiperBuildInit() {
     // allowTouchMove: true,
 
     loop: true,
-	speed: 600,
+    speed: 600,
 
     navigation: {
       nextEl: '[build-form=next]',
-    //   prevEl: '[h-blog-button=prev]',
+      //   prevEl: '[h-blog-button=prev]',
     },
 
     // pagination: {
@@ -117,6 +136,3 @@ function swiperBuildInit() {
 }
 
 swiperBuildInit();
-
-
-
