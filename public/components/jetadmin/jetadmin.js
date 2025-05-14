@@ -31,7 +31,7 @@ function buildFormInit() {
     promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
   };
 
-  //
+  // 
   [
     buildForm.radioPromptAdmin,
     buildForm.radioPromptCRM,
@@ -131,10 +131,6 @@ function buildFormInit() {
     });
   });
 }
-
-//
-//
-//
 
 function splideBuildInit() {
   const splide = new Splide('#splideBuild', {
