@@ -117,7 +117,7 @@ function buildFormInit() {
 
 function splideBuildInit() {
   new Splide('#splideBuild', {
-    type: 'slide',
+    type: "loop",
     perPage: 5,
     perMove: 5,
     gap: '8px',
