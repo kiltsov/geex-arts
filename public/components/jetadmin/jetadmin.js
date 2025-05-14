@@ -84,10 +84,12 @@ function buildFormInit() {
   });
 
   buildForm.input.addEventListener('input', () => {
-  if (buildForm.input.value.trim().length > 0) {
-    buildForm.submitWrapper.classList.remove('is-disable');
-  }
-});
+    if (buildForm.input.value.trim().length > 0) {
+      buildForm.submitWrapper.classList.remove('is-disable');
+    } else {
+      buildForm.submitWrapper.classList.add('is-disable');
+    }
+  });
 
   // function handleInputChange() {
   //   textarea = buildForm.input;
