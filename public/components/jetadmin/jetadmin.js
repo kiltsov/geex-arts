@@ -76,15 +76,38 @@ buildForm.submit.addEventListener('click', (e) => {
   // window.location.href = `${BASE_URL}${query}`;
 });
 
-document.querySelectorAll('.build-form__radio-input').forEach(radio => {
+// Обработчик для всех радиокнопок
+document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach(radio => {
   radio.addEventListener('change', () => {
-    // Убираем .is-active во всех группах
-    document.querySelectorAll('.build-form_radio.is-active, .build-form_radio-integration.is-active')
-      .forEach(el => el.classList.remove('is-active'));
+    const isPrompt = radio.name === 'radioPrompts';
+    const isIntegration = radio.name === 'selectedIntegration';
 
-    // Добавляем .is-active только ближайшему валидному родителю
+    // Сброс классов активности
+    if (isPrompt) {
+      document.querySelectorAll('.build-form_radio.is-active').forEach(el => el.classList.remove('is-active'));
+    }
+
+    if (isIntegration) {
+      document.querySelectorAll('.build-form_radio-integration.is-active').forEach(el => el.classList.remove('is-active'));
+    }
+
+    // Добавление класса активности
     const container = radio.closest('.build-form_radio') || radio.closest('.build-form_radio-integration');
-    if (container) container.classList.add('is-active');
+    if (container) {
+      container.classList.add('is-active');
+    }
+
+    // Обновление значений
+    if (isPrompt) {
+      selectedPrompt = prompts[radio.value] || '';
+      buildForm.input.value = selectedPrompt;
+    }
+
+    if (isIntegration) {
+      selectedIntegration = radio.value.trim();
+    }
+
+    updateHiddenInput();
   });
 });
 
