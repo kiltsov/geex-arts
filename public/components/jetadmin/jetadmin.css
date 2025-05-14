@@ -9,3 +9,12 @@
 	background-color: #2B50ED;
 	color: white;
 }
+
+.build-form_radio-integration {
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+.build-form_radio-integration.is-active {
+	border-color: #2B50ED;
+}
