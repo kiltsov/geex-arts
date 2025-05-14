@@ -52,6 +52,8 @@ buildForm.radioData.forEach(radio => {
 
 function updateHiddenInput() {
   const prompt = buildForm.input.value.trim();
+  if (!buildForm.hiddenInput) return; // Защита
+
   if (selectedSlug && prompt) {
     const promptEncoded = encodeURIComponent(prompt);
     buildForm.hiddenInput.value = `/${selectedSlug}?prompt=${promptEncoded}`;
