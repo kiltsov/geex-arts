@@ -1,6 +1,6 @@
 function swiperBuildInit() {
   const swiperBuild = new Swiper('#swiperBuild', {
-    spaceBetween: 8,
+    spaceBetween: 'auto',
     slidesPerView: 5,
     slidesPerGroup: 5,
 
