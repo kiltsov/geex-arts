@@ -45,7 +45,7 @@ const prompts = {
 // Обработчик для радиокнопок из CMS (с dynamic id/slug)
 buildForm.radioData.forEach(radio => {
   radio.addEventListener('change', () => {
-    selectedSlug = radio.id;
+    selectedSlug = radio.dataset.name || ''; // <-- берем из data-name
     updateHiddenInput();
   });
 });
