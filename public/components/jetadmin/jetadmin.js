@@ -79,23 +79,13 @@ buildForm.submit.addEventListener('click', (e) => {
 
 document.querySelectorAll('.build-form__radio-input').forEach(radio => {
   radio.addEventListener('change', () => {
-    document.querySelectorAll('.build-form_radio').forEach(label => {
-      label.classList.remove('is-active');
-    });
-    if (radio.checked) {
-      radio.closest('.build-form_radio').classList.add('is-active');
-    }
-  });
-});
+    // Убираем .is-active во всех группах
+    document.querySelectorAll('.build-form_radio.is-active, .build-form_radio-integration.is-active')
+      .forEach(el => el.classList.remove('is-active'));
 
-document.querySelectorAll('.build-form__radio-input').forEach(radio => {
-  radio.addEventListener('change', () => {
-    document.querySelectorAll('.build-form_radio-integration').forEach(label => {
-      label.classList.remove('is-active');
-    });
-    if (radio.checked) {
-      radio.closest('.build-form_radio-integration').classList.add('is-active');
-    }
+    // Добавляем .is-active только ближайшему валидному родителю
+    const container = radio.closest('.build-form_radio') || radio.closest('.build-form_radio-integration');
+    if (container) container.classList.add('is-active');
   });
 });
 
