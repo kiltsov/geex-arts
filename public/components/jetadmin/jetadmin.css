@@ -1,9 +1,12 @@
-.build-form_radio {
-	border-color: rgba(255, 255, 255, 0.09);
+.build-form__cover {
 	background-color: rgba(255, 255, 255, 0.6);
 }
 
-.build-form__radio-input:checked + .build-form_radio {
+.build-form_radio {
+	border-color: rgba(255, 255, 255, 0.09);
+}
+
+.build-form__radio-input:checked + .build-form__cover {
 	background-color: rgba(43, 80, 237, 1);
 }
 
@@ -12,6 +15,6 @@
 	background-color: rgba(255, 255, 255, 0.6);
 }
 
-.build-form__radio-input:checked + .build-form_radio {
+.build-form__radio-input:checked + .build-form__cover {
 	background-color: rgba(43, 80, 237, 1);
 }
