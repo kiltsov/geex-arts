@@ -3,7 +3,7 @@
 	background-color: #FFFFFF;
 }
 
-.build-form_radio .is-active {
+.build-form_radio.is-active {
 	border-color: #2B50ED;
 	background-color: #2B50ED;
 }
