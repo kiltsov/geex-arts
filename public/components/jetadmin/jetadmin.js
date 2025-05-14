@@ -27,6 +27,7 @@ function buildFormInit() {
     promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
   };
 
+  //
   [
     buildForm.radioPromptAdmin,
     buildForm.radioPromptCRM,
@@ -49,19 +50,20 @@ function buildFormInit() {
     });
   });
 
-  function updateHiddenInput() {
-    const prompt = buildForm.input.value.trim();
-    const submit = buildForm.submit;
-    if (!buildForm.hiddenInput) return;
+function updateHiddenInput() {
+  const prompt = buildForm.input.value.trim();
+  const submit = buildForm.submit;
+  if (!buildForm.hiddenInput) return;
 
-    if (selectedIntegration && prompt) {
-      const promptEncoded = encodeURIComponent(prompt);
-      buildForm.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
-      submit.classList.remove('is-disable');
-    } else {
-      buildForm.hiddenInput.value = '';
-    }
+  if (selectedIntegration && prompt) {
+    const promptEncoded = encodeURIComponent(prompt);
+    buildForm.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
+    submit.classList.remove('is-disable');
+  } else {
+    buildForm.hiddenInput.value = '';
+    submit.classList.add('is-disable'); // <-- добавим это на всякий случай
   }
+}
 
   buildForm.submit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -115,6 +117,16 @@ function buildFormInit() {
 
       updateHiddenInput();
     });
+  });
+
+    buildForm.input.addEventListener('input', () => {
+    const hasValue = buildForm.input.value.trim().length > 0;
+
+    if (hasValue && selectedIntegration) {
+      buildForm.submit.classList.remove('is-disable');
+    } else {
+      buildForm.submit.classList.add('is-disable');
+    }
   });
 }
 
