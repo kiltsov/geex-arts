@@ -17,8 +17,7 @@ function buildFormInit() {
 
   let selectedPrompt = '';
   let selectedIntegration = '';
-  inputChange();
-  // buildForm.submit.classList.add('is-disable');
+  buildForm.submit.classList.add('is-disable');
 
   // Prompts
   const prompts = {
@@ -40,7 +39,7 @@ function buildFormInit() {
         selectedPrompt = prompts[radio.id] || '';
         buildForm.input.value = selectedPrompt;
         updateHiddenInput();
-        inputChange();
+        buildForm.submit.classList.remove('is-disable');
       });
     }
   });
@@ -80,15 +79,6 @@ function buildFormInit() {
     // Переход
     window.location.href = `${BASE_URL}${query}`;
   });
-
-  function inputChange() {
-    buildForm.input.addEventListener('input', () => {
-      const hasValue = buildForm.input.value.trim().length > 0;
-      const hasIntegration = selectedIntegration.length > 0;
-
-      buildForm.submit.classList.toggle('is-disable', !(hasValue && hasIntegration));
-    });
-  }
 
   // Обработчик для всех радиокнопок
   document.querySelectorAll('.build-form__radio-input, .build-form__radio-input-integ').forEach((radio) => {
