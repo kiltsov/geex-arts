@@ -26,7 +26,6 @@ const prompts = {
   promptInventory: 'Dashboard – Dashboard on top of my data for tracking metrics and insights',
 };
 
-// Обработчики для первой группы радиокнопок
 [
   buildForm.radioPromptAdmin,
   buildForm.radioPromptCRM,
@@ -42,10 +41,9 @@ const prompts = {
   }
 });
 
-// Обработчик для радиокнопок из CMS (с dynamic id/slug)
 buildForm.radioData.forEach(radio => {
   radio.addEventListener('change', () => {
-    selectedSlug = radio.dataset.name || ''; // <-- берем из data-name
+    selectedSlug = radio.dataset.name || '';
     updateHiddenInput();
   });
 });
@@ -62,8 +60,6 @@ function updateHiddenInput() {
   }
 }
 
-// Сабмит формы
-// Сабмит формы
 buildForm.submit.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -74,9 +70,9 @@ buildForm.submit.addEventListener('click', (e) => {
   // Пишем в скрытый инпут
   buildForm.hiddenInput.value = query;
 
-  console.log('📌 Выбранный slug:', selectedSlug);
-  console.log('✏️ Выбранный prompt:', prompt);
-  console.log('📎 Финальная query строка:', query);
+  console.log('Slug:', selectedSlug);
+  console.log('Prompt:', prompt);
+  console.log('Final query:', query);
 
   // Переход (можно включить при необходимости)
   // window.location.href = `${BASE_URL}${query}`;
