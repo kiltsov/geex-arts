@@ -123,7 +123,7 @@ function splideBuildInit() {
     gap: '8px',
     speed: 600,
     pagination: false,
-    arrows: true, // отключи если кастомные стрелки
+    arrows: false, // отключи если кастомные стрелки
     breakpoints: {
       768: {
         perPage: 5,
@@ -135,6 +135,8 @@ function splideBuildInit() {
       },
     },
   }).mount();
+
+  document.querySelector('[build-form=next]').addEventListener('click', () => splide.go('>'));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
