@@ -27,8 +27,8 @@ const pageLayouts = {
 function getCurrentPage(slug) {
   switch(slug) {
     case 'test':
-      console.log('Using productPage layout');
-      return 'landingPage';
+      console.log('Using homePage layout');
+      return 'homePage';
     // Добавьте другие случаи по необходимости
     default:
       console.log('Using default homePage layout');
