@@ -25,7 +25,7 @@ const pageLayouts = {
 // Функция для определения текущей страницы
 function getCurrentPage(slug) {
   switch(slug) {
-    case 'Bazar':
+    case 'test-item':
       console.log('Using productPage layout');
       return 'productPage';
     // Добавьте другие случаи по необходимости
