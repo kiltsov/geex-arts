@@ -28,7 +28,7 @@ function getCurrentPage(slug) {
   switch(slug) {
     case 'test':
       console.log('Using secondLayout');
-      return 'secondLayout';
+      return 'defaultLayout';
     // Добавьте другие случаи по необходимости
     default:
       console.log('Using default layout');
