@@ -1,4 +1,4 @@
-const itemSlug = 'Bazar'; // Это может быть динамическим значением
+const itemSlug = 'test-item'; // Это может быть динамическим значением
 const body = document.querySelector(`[body-template="${itemSlug}"]`);
 
 const wrapper = document.getElementById('templateWrapper');
