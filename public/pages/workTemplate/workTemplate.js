@@ -6,20 +6,21 @@ if (!wrapper) throw new Error('Wrapper element not found');
 
 const template = {
   sectionMainSlider: document.getElementById('sectionMainSlider'),
-  sectionThumbSlider: document.getElementById('sectionThumbSlider'),
+  sectionTemplateFeatures: document.getElementById('sectionTemplateFeatures'),
   sectionGrid: document.getElementById('sectionGrid'),
+  sectionThumbSlider: document.getElementById('sectionThumbSlider'),
+  sectionTemplateVideo: document.getElementById('sectionTemplateVideo'),
   sectionBigLanding: document.getElementById('sectionBigLanding'),
   sectionSmallLanding: document.getElementById('sectionSmallLanding'),
-  sectionTemplateVideo: document.getElementById('sectionTemplateVideo'),
-  sectionTemplateFeatures: document.getElementById('sectionTemplateFeatures'),
+
   sectionTemplateDynamics: document.getElementById('sectionTemplateDynamics'),
 };
 
 // Конфигурация расположения секций
 const pageLayouts = {
-  homePage: ['sectionMainSlider', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures'],
-  productPage: ['sectionBigLanding', 'sectionTemplateVideo', 'sectionTemplateDynamics', 'sectionSmallLanding'],
-  landingPage: ['sectionMainSlider', 'sectionTemplateFeatures', 'sectionTemplateVideo', 'sectionGrid'],
+  homePage: ['sectionMainSlider', 'sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding' ],
+  productPage: ['sectionSmallLanding', 'sectionBigLanding', 'sectionTemplateVideo', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures', 'sectionMainSlider' ],
+  landingPage: ['sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding', 'sectionMainSlider' ],
 };
 
 // Функция для определения текущей страницы
