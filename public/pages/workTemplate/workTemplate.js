@@ -18,21 +18,21 @@ const template = {
 
 // Конфигурация расположения секций
 const pageLayouts = {
-  homePage: ['sectionMainSlider', 'sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding' ],
-  productPage: ['sectionSmallLanding', 'sectionBigLanding', 'sectionTemplateVideo', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures', 'sectionMainSlider' ],
-  landingPage: ['sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding', 'sectionMainSlider' ],
+  defaultLayout: ['sectionMainSlider', 'sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding' ],
+  firstLayout: ['sectionSmallLanding', 'sectionBigLanding', 'sectionTemplateVideo', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures', 'sectionMainSlider' ],
+  secondLayout: ['sectionTemplateFeatures', 'sectionGrid', 'sectionThumbSlider', 'sectionTemplateVideo', 'sectionBigLanding', 'sectionSmallLanding', 'sectionMainSlider' ],
 };
 
 // Функция для определения текущей страницы
 function getCurrentPage(slug) {
   switch(slug) {
     case 'test':
-      console.log('Using homePage layout');
-      return 'homePage';
+      console.log('Using secondLayout');
+      return 'secondLayout';
     // Добавьте другие случаи по необходимости
     default:
-      console.log('Using default homePage layout');
-      return 'homePage';
+      console.log('Using default layout');
+      return 'defaultLayout';
   }
 }
 
