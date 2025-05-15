@@ -27,7 +27,7 @@ function getCurrentPage(slug) {
   switch(slug) {
     case 'test-item':
       console.log('Using productPage layout');
-      return 'productPage';
+      return 'landingPage';
     // Добавьте другие случаи по необходимости
     default:
       console.log('Using default homePage layout');
