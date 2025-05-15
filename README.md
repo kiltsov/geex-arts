@@ -8,5 +8,7 @@
 <script type="module" src="https://geex-arts.vercel.app/global/global.js"></script>
 <script type="module" src="https://geex-arts.vercel.app/home/home.js"></script>
 
+<script type="module" src="https://geex-arts.vercel.app/pages/workTemplate/workTemplate.js"></script>
+
 git config --global alias.acp '!git add . && git commit -m "Fixed" && git push'
 git acp

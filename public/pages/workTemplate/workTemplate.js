@@ -10,6 +10,10 @@ const template = {
   sectionTemplateDynamics: document.getElementById('sectionTemplateDynamics'),
 };
 
+let currentPage = 'homePage';
+const itemSlug = '';
+let body = document.querySelector(`[body-template=${itemSlug}]`);
+
 // Config
 const pageLayouts = {
   homePage: ['sectionMainSlider', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures'],
@@ -36,10 +40,6 @@ function setLayout(layoutName) {
   });
 }
 
-let currentPage = 'homePage';
-const itemSlug = '';
-
-let body = document.querySelector(`[body-template=${itemSlug}]`);
 if (itemSlug == 'Bazar') {
   currentPage == 'productPage';
   console.log(`Current layout is ${currentPage}`);
