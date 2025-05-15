@@ -1,4 +1,9 @@
+const itemSlug = 'Bazar'; // Это может быть динамическим значением
+const body = document.querySelector(`[body-template="${itemSlug}"]`);
+
 const wrapper = document.getElementById('templateWrapper');
+if (!wrapper) throw new Error('Wrapper element not found');
+
 const template = {
   sectionMainSlider: document.getElementById('sectionMainSlider'),
   sectionThumbSlider: document.getElementById('sectionThumbSlider'),
@@ -10,52 +15,53 @@ const template = {
   sectionTemplateDynamics: document.getElementById('sectionTemplateDynamics'),
 };
 
-let currentPage = 'homePage';
-const itemSlug = '';
-let body = document.querySelector(`[body-template=${itemSlug}]`);
-
-// Config
+// Конфигурация расположения секций
 const pageLayouts = {
   homePage: ['sectionMainSlider', 'sectionThumbSlider', 'sectionGrid', 'sectionTemplateFeatures'],
   productPage: ['sectionBigLanding', 'sectionTemplateVideo', 'sectionTemplateDynamics', 'sectionSmallLanding'],
   landingPage: ['sectionMainSlider', 'sectionTemplateFeatures', 'sectionTemplateVideo', 'sectionGrid'],
 };
 
+// Функция для определения текущей страницы
+function getCurrentPage(slug) {
+  switch(slug) {
+    case 'Bazar':
+      console.log('Using productPage layout');
+      return 'productPage';
+    // Добавьте другие случаи по необходимости
+    default:
+      console.log('Using default homePage layout');
+      return 'homePage';
+  }
+}
+
+// Функция для установки layout
 function setLayout(layoutName) {
   if (!pageLayouts[layoutName]) {
     console.error(`Layout "${layoutName}" not found`);
     return;
   }
 
-  while (wrapper.firstChild) {
-    wrapper.removeChild(wrapper.firstChild);
-  }
+  // Очищаем wrapper более эффективным способом
+  wrapper.innerHTML = '';
 
-  pageLayouts[layoutName].forEach((sectionKey) => {
-    if (template[sectionKey]) {
-      wrapper.appendChild(template[sectionKey]);
+  // Добавляем секции в нужном порядке
+  pageLayouts[layoutName].forEach(sectionKey => {
+    const section = template[sectionKey];
+    if (section) {
+      wrapper.appendChild(section);
     } else {
       console.warn(`Section "${sectionKey}" not found in template`);
     }
   });
 }
 
-if (itemSlug == 'Bazar') {
-  currentPage == 'productPage';
-  console.log(`Current layout is ${currentPage}`);
-} else {
-  currentPage = 'homePage';
-  console.log(`Current layout is default - ${currentPage}`);
+// Основная логика
+try {
+  const currentLayout = getCurrentPage(itemSlug);
+  setLayout(currentLayout);
+} catch (error) {
+  console.error('Failed to set page layout:', error);
+  // Можно установить layout по умолчанию в случае ошибки
+  setLayout('homePage');
 }
-
-function getCurrentPage() {
-  const path = window.location.pathname;
-  if (path.includes('/product/')) return 'productPage';
-  if (path.includes('/landing/')) return 'landingPage';
-  return 'homePage';
-}
-
-const defaultOrder = Object.keys(template);
-
-// Устанавливаем нужный layout
-setLayout(currentPage);
