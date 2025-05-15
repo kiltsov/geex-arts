@@ -1,4 +1,4 @@
-const itemSlug = 'test-item'; // Это может быть динамическим значением
+const itemSlug = 'test'; // Это может быть динамическим значением
 const body = document.querySelector(`[body-template="${itemSlug}"]`);
 
 const wrapper = document.getElementById('templateWrapper');
@@ -25,7 +25,7 @@ const pageLayouts = {
 // Функция для определения текущей страницы
 function getCurrentPage(slug) {
   switch(slug) {
-    case 'test-item':
+    case 'test':
       console.log('Using productPage layout');
       return 'landingPage';
     // Добавьте другие случаи по необходимости
