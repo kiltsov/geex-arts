@@ -53,33 +53,37 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 // }
 
 function swiperThumbsInit() {
-  const galleryEl = document.querySelector('#thumb-gallery');
-  const swiperEl = document.querySelector('#thumb-swiper');
+  const sliderGroups = document.querySelectorAll('.swiper-thumbs-group');
 
-  if (!galleryEl || !swiperEl) {
-    console.warn('swiperThumbsInit: required elements not found');
-    return;
-  }
+  sliderGroups.forEach((groupEl) => {
+    const galleryEl = groupEl.querySelector('.thumb-gallery');
+    const swiperEl = groupEl.querySelector('.thumb-swiper');
 
-  const galleryThumbs = new Swiper(galleryEl, {
-    spaceBetween: 8,
-    slidesPerView: 'auto',
-    watchSlidesProgress: true,
-    centeredSlides: false,
-    grabCursor: true,
-    allowTouchMove: true,
-    a11y: false,
-  });
+    if (!galleryEl || !swiperEl) {
+      console.warn('One of the swiper elements is missing in group:', groupEl);
+      return;
+    }
 
-  const swiperThumbs = new Swiper(swiperEl, {
-    spaceBetween: 18,
-    slidesPerView: 1.1,
-    speed: 600,
-    loop: false,
+    const galleryThumbs = new Swiper(galleryEl, {
+      spaceBetween: 8,
+      slidesPerView: 'auto',
+      watchSlidesProgress: true,
+      centeredSlides: false,
+      grabCursor: true,
+      allowTouchMove: true,
+      a11y: false,
+    });
 
-    thumbs: {
-      swiper: galleryThumbs,
-    },
+    new Swiper(swiperEl, {
+      spaceBetween: 18,
+      slidesPerView: 1.1,
+      speed: 600,
+      loop: false,
+
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+    });
   });
 }
 
@@ -94,12 +98,12 @@ pageTransitionAnimation(() => {
 }, 0.5);
 
 window.addEventListener('load', function () {
-    swiperThumbsInit();
+    // swiperThumbsInit();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   // swiperTsbInit();
-  // swiperThumbsInit();
+  swiperThumbsInit();
 });
 
 // DESKTOP FUNCTIONS
