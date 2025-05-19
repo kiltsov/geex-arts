@@ -53,7 +53,7 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 // }
 
 function swiperThumbsInit() {
-  const sliderGroups = document.querySelectorAll('.swiper-thumbs-group');
+  const sliderGroups = document.querySelectorAll('.thumb-slider-element');
 
   sliderGroups.forEach((groupEl) => {
     const galleryEl = groupEl.querySelector('.thumb-gallery');
