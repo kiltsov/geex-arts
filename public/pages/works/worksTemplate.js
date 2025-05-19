@@ -93,11 +93,13 @@ pageTransitionAnimation(() => {
   headerScrollAnimation();
 }, 0.5);
 
-window.addEventListener('load', function () {});
+window.addEventListener('load', function () {
+    swiperThumbsInit();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   // swiperTsbInit();
-  swiperThumbsInit();
+  // swiperThumbsInit();
 });
 
 // DESKTOP FUNCTIONS
