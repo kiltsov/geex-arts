@@ -9,48 +9,48 @@ import { textFadeIntoAnimation } from '../../components/text-animation/textAnima
 
 import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/video-player.js';
 
-// Swiper Template Swiper Big
-function swiperTsbInit() {
-  const swiperTsb = new Swiper('.swiper-tsb', {
-    loop: false,
-    speed: 600,
+// // Swiper Template Swiper Big
+// function swiperTsbInit() {
+//   const swiperTsb = new Swiper('.swiper-tsb', {
+//     loop: false,
+//     speed: 600,
 
-    navigation: {
-      nextEl: '[tsb-button=next]',
-      prevEl: '[tsb-button=prev]',
-    },
+//     navigation: {
+//       nextEl: '[tsb-button=next]',
+//       prevEl: '[tsb-button=prev]',
+//     },
 
-    on: {
-      init(swiper) {
-        updatePreviewButtons(swiper);
-      },
-      slideChange(swiper) {
-        updatePreviewButtons(swiper);
-      },
-    },
-  });
+//     on: {
+//       init(swiper) {
+//         updatePreviewButtons(swiper);
+//       },
+//       slideChange(swiper) {
+//         updatePreviewButtons(swiper);
+//       },
+//     },
+//   });
 
-  function updatePreviewButtons(swiperInstance) {
-    const slides = swiperInstance.slides;
-    const currentIndex = swiperInstance.realIndex;
+//   function updatePreviewButtons(swiperInstance) {
+//     const slides = swiperInstance.slides;
+//     const currentIndex = swiperInstance.realIndex;
 
-    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    const nextIndex = (currentIndex + 1) % slides.length;
+//     const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+//     const nextIndex = (currentIndex + 1) % slides.length;
 
-    const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
-    const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
+//     const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
+//     const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
 
-    const prevButtonImg = document.querySelector('[tsb-button=prev] img');
-    const nextButtonImg = document.querySelector('[tsb-button=next] img');
+//     const prevButtonImg = document.querySelector('[tsb-button=prev] img');
+//     const nextButtonImg = document.querySelector('[tsb-button=next] img');
 
-    if (prevSlideImg && prevButtonImg) {
-      prevButtonImg.src = prevSlideImg.src;
-    }
-    if (nextSlideImg && nextButtonImg) {
-      nextButtonImg.src = nextSlideImg.src;
-    }
-  }
-}
+//     if (prevSlideImg && prevButtonImg) {
+//       prevButtonImg.src = prevSlideImg.src;
+//     }
+//     if (nextSlideImg && nextButtonImg) {
+//       nextButtonImg.src = nextSlideImg.src;
+//     }
+//   }
+// }
 
 function swiperThumbsInit() {
   // Сначала инициализируем миниатюры
