@@ -53,8 +53,15 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 // }
 
 function swiperThumbsInit() {
-  // Сначала инициализируем миниатюры
-  const galleryThumbs = new Swiper('#thumb-gallery', {
+  const galleryEl = document.querySelector('#thumb-gallery');
+  const swiperEl = document.querySelector('#thumb-swiper');
+
+  if (!galleryEl || !swiperEl) {
+    console.warn('swiperThumbsInit: required elements not found');
+    return;
+  }
+
+  const galleryThumbs = new Swiper(galleryEl, {
     spaceBetween: 8,
     slidesPerView: 'auto',
     watchSlidesProgress: true,
@@ -64,15 +71,12 @@ function swiperThumbsInit() {
     a11y: false,
   });
 
-  // Затем — основной слайдер
-  const swiperThumbs = new Swiper('#thumb-swiper', {
+  const swiperThumbs = new Swiper(swiperEl, {
     spaceBetween: 18,
     slidesPerView: 1.1,
-
     speed: 600,
-
     loop: false,
-    
+
     thumbs: {
       swiper: galleryThumbs,
     },
