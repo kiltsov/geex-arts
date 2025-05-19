@@ -65,7 +65,7 @@ function swiperThumbsInit() {
   });
 
   // Затем — основной слайдер
-  const swiperThumbs = new Swiper('.thumbs-swiper', {
+  const swiperThumbs = new Swiper('#thumb-swiper', {
     spaceBetween: 18,
     slidesPerView: 1.1,
 
