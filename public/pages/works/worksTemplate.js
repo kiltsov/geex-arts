@@ -53,14 +53,30 @@ function swiperTsbInit() {
       const prevSlideImg = prevSlide?.querySelector?.('.tsb-card img');
       const nextSlideImg = nextSlide?.querySelector?.('.tsb-card img');
 
-const prevButtonImg = groupEl.querySelector('[tsb-button=prev] img');
-const nextButtonImg = groupEl.querySelector('[tsb-button=next] img');
+      const prevButton = groupEl.querySelector('[tsb-button=prev]');
+      const nextButton = groupEl.querySelector('[tsb-button=next]');
+      const prevButtonImg = prevButton?.querySelector?.('img');
+      const nextButtonImg = nextButton?.querySelector?.('img');
 
+      // Обновляем превью
       if (prevSlideImg && prevButtonImg) {
         prevButtonImg.src = prevSlideImg.src;
       }
       if (nextSlideImg && nextButtonImg) {
         nextButtonImg.src = nextSlideImg.src;
+      }
+
+      // Скрытие/показ кнопок в зависимости от текущего слайда
+      if (currentIndex === 0) {
+        prevButton?.classList.add('is-hidden');
+      } else {
+        prevButton?.classList.remove('is-hidden');
+      }
+
+      if (currentIndex === slides.length - 1) {
+        nextButton?.classList.add('is-hidden');
+      } else {
+        nextButton?.classList.remove('is-hidden');
       }
     }
   });
