@@ -50,11 +50,11 @@ function swiperTsbInit() {
       const prevSlide = slides[prevIndex];
       const nextSlide = slides[nextIndex];
 
-      const prevSlideImg = prevSlide?.querySelector?.('.tsb-card .image');
-      const nextSlideImg = nextSlide?.querySelector?.('.tsb-card .image');
+      const prevSlideImg = prevSlide?.querySelector?.('.tsb-card img');
+      const nextSlideImg = nextSlide?.querySelector?.('.tsb-card img');
 
-      const prevButtonImg = document.querySelector('[tsb-button=prev] .image');
-      const nextButtonImg = document.querySelector('[tsb-button=next] .image');
+      const prevButtonImg = document.querySelector('[tsb-button=prev] img');
+      const nextButtonImg = document.querySelector('[tsb-button=next] img');
 
       if (prevSlideImg && prevButtonImg) {
         prevButtonImg.src = prevSlideImg.src;
