@@ -11,46 +11,59 @@ import { videoPlayOnHover, videoAutoplay } from '../../components/video-player/v
 
 // Swiper Template Swiper Big
 function swiperTsbInit() {
-  const swiperTsb = new Swiper('.swiper-tsb', {
-    loop: false,
-    speed: 600,
+  const sliderGroups = document.querySelectorAll('.tsb__component');
 
-    navigation: {
-      nextEl: '[tsb-button=next]',
-      prevEl: '[tsb-button=prev]',
-    },
+  sliderGroups.forEach((groupEl) => {
+    const swiperEl = groupEl.querySelector('.swiper-tsb');
+    if (!swiperEl) return;
 
-    on: {
-      init(swiper) {
-        updatePreviewButtons(swiper);
+    const swiperTsb = new Swiper(swiperEl, {
+      loop: false,
+      speed: 600,
+
+      navigation: {
+        nextEl: '[tsb-button=next]',
+        prevEl: '[tsb-button=prev]',
       },
-      slideChange(swiper) {
-        updatePreviewButtons(swiper);
+
+      on: {
+        init(swiper) {
+          updatePreviewButtons(swiper);
+        },
+        slideChange(swiper) {
+          updatePreviewButtons(swiper);
+        },
       },
-    },
+    });
+
+    function updatePreviewButtons(swiperInstance) {
+      const slides = swiperInstance.slides;
+      const currentIndex = swiperInstance.realIndex;
+
+      if (!slides || slides.length === 0) return;
+
+      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      const nextIndex = (currentIndex + 1) % slides.length;
+
+      const prevSlide = slides[prevIndex];
+      const nextSlide = slides[nextIndex];
+
+      const prevSlideImg = prevSlide?.querySelector?.('.tsb-card img');
+      const nextSlideImg = nextSlide?.querySelector?.('.tsb-card img');
+
+      const prevButtonImg = document.querySelector('[tsb-button=prev] img');
+      const nextButtonImg = document.querySelector('[tsb-button=next] img');
+
+      if (prevSlideImg && prevButtonImg) {
+        prevButtonImg.src = prevSlideImg.src;
+      }
+      if (nextSlideImg && nextButtonImg) {
+        nextButtonImg.src = nextSlideImg.src;
+      }
+    }
   });
-
-  function updatePreviewButtons(swiperInstance) {
-    const slides = swiperInstance.slides;
-    const currentIndex = swiperInstance.realIndex;
-
-    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    const nextIndex = (currentIndex + 1) % slides.length;
-
-    const prevSlideImg = slides[prevIndex].querySelector('.tsb-card img');
-    const nextSlideImg = slides[nextIndex].querySelector('.tsb-card img');
-
-    const prevButtonImg = document.querySelector('[tsb-button=prev] img');
-    const nextButtonImg = document.querySelector('[tsb-button=next] img');
-
-    if (prevSlideImg && prevButtonImg) {
-      prevButtonImg.src = prevSlideImg.src;
-    }
-    if (nextSlideImg && nextButtonImg) {
-      nextButtonImg.src = nextSlideImg.src;
-    }
-  }
 }
+
 
 function swiperThumbsInit() {
   const sliderGroups = document.querySelectorAll('.thumb-slider-element');
