@@ -67,13 +67,14 @@ function swiperTsbInit() {
       }
 
       // Скрытие/показ кнопок в зависимости от текущего слайда
-      if (currentIndex === 0) {
+      // Скрытие/показ кнопок в зависимости от текущего слайда
+      if (swiperInstance.isBeginning) {
         prevButton?.classList.add('is-hidden');
       } else {
         prevButton?.classList.remove('is-hidden');
       }
 
-      if (currentIndex === slides.length - 1) {
+      if (swiperInstance.isEnd) {
         nextButton?.classList.add('is-hidden');
       } else {
         nextButton?.classList.remove('is-hidden');
