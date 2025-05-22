@@ -18,6 +18,8 @@ function swiperTsbInit() {
     if (!swiperEl) return;
 
     const swiperTsb = new Swiper(swiperEl, {
+      spaceBetween: 32,
+      slidesPerView: 1,
       loop: false,
       speed: 600,
 
@@ -63,7 +65,6 @@ function swiperTsbInit() {
     }
   });
 }
-
 
 function swiperThumbsInit() {
   const sliderGroups = document.querySelectorAll('.thumb-slider-element');
@@ -111,7 +112,7 @@ pageTransitionAnimation(() => {
 }, 0.5);
 
 window.addEventListener('load', function () {
-    // swiperThumbsInit();
+  // swiperThumbsInit();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
