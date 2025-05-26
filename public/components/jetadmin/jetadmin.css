@@ -21,6 +21,7 @@
 
 .build-form_radio-integration:hover {
   background: linear-gradient(272.15deg, #2B50ED 1.56%, #607EFF 99.75%);
+  color: white;
 }
 
 .build-form-submit {
