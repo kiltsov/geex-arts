@@ -120,6 +120,7 @@ function splideBuildInit() {
         perMove: 5,
       },
       480: {
+        gap: '3px',
         perPage: 4,
         perMove: 4,
       },
