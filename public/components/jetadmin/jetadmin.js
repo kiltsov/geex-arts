@@ -82,6 +82,11 @@ function buildFormInit() {
       container.classList.add('is-active');
     }
 
+    if (isIntegration) {
+      const val = radio.value.trim();
+      selectedIntegration = val !== 'fake' ? val : '';
+    }
+
     // Обновление значений
     if (isPrompt) {
       selectedPrompt = prompts[radio.id] || '';
