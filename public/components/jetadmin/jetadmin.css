@@ -1,54 +1,44 @@
 .build-form_radio {
-	border-color: #E0E1E6;
-	background-color: #FFFFFF;
-	color: black;
+  border-color: #e0e1e6;
+  background-color: #ffffff;
+  color: black;
 }
 
 .build-form_radio.is-active {
-	border-color: #2B50ED;
-	background-color: #2B50ED;
-	color: white;
+  border-color: #2b50ed;
+  background-color: #2b50ed;
+  color: white;
 }
 
 .build-form_radio-integration {
-	border-color: #FFFFFF;
-	background-color: #FFFFFF;
+  border-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .build-form_radio-integration.is-active {
-	border-color: #2B50ED;
+  border-color: #2b50ed;
 }
 
 .build-form_radio-integration:hover {
-  background: linear-gradient(272.15deg, #2B50ED 1.56%, #607EFF 99.75%);
+  background: linear-gradient(272.15deg, #2b50ed 1.56%, #607eff 99.75%);
   color: white;
+}
+
+.tooltip {
+  opacity: 0;
 }
 
 .build-form_radio-integration:hover .tooltip {
-	opacity: 1;
+  opacity: 1;
 }
 
 .build-form-submit {
-	transition: all 1s ease;
-	y: '0%';
-	opacity: 1;
+  transition: all 1s ease;
+  y: '0%';
+  opacity: 1;
 }
 
 .build-form-submit.is-disable {
-	y: '100%';
-	opacity: 0;
+  y: '100%';
+  opacity: 0;
 }
-
-/* #tooltip {
-  position: absolute;
-  background-color: #2B50ED;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 1000;
-  transform: translateX(-50%);
-  transition: opacity 0.2s ease;
-} */

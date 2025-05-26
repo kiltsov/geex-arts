@@ -134,26 +134,13 @@ function splideBuildInit() {
 document.addEventListener('DOMContentLoaded', () => {
   buildFormInit();
   splideBuildInit();
+
+    // Инициализация тултипов
+  tippy('[data-tippy-content]', {
+    placement: 'bottom',
+    arrow: true,
+    theme: 'light', // опционально
+    delay: [0, 0],
+    animation: 'fade',
+  });
 });
-
-// const tooltip = document.getElementById('tooltip');
-
-// document.querySelectorAll('.build-form_radio-integration').forEach((el) => {
-//   el.addEventListener('mouseenter', () => {
-//     const value = el.getAttribute('tooltip-data');
-//     if (!value) return;
-
-//     tooltip.textContent = value;
-//     tooltip.style.display = 'block';
-
-//     const rect = el.getBoundingClientRect();
-//     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-//     // tooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
-//     tooltip.style.left = `${rect.left + rect.width / 2}px`;
-//   });
-
-//   el.addEventListener('mouseleave', () => {
-//     tooltip.style.display = 'none';
-//   });
-// });
