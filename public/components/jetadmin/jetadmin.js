@@ -66,7 +66,7 @@ function buildFormInit() {
       FinalQuery: query,
     });
 
-    // window.location.href = `${BASE_URL}${query}`;
+    window.location.href = `${BASE_URL}${query}`;
   };
 
   const handleRadioChange = (e) => {
