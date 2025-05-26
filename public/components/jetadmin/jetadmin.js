@@ -159,3 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
     animation: 'fade',
   });
 });
+
+// Установить .is-active на первый элемент
+const firstIntegration = document.querySelector('.build-form__data-wrapper .build-form_radio-integration');
+if (firstIntegration) {
+  firstIntegration.classList.add('is-active');
+
+  // Активируем радио внутри
+  const input = firstIntegration.querySelector('input[type="radio"]');
+  if (input) {
+    input.checked = true;
+    input.dispatchEvent(new Event('change', { bubbles: true })); // чтобы сработал обработчик
+  }
+}
