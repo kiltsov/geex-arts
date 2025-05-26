@@ -149,7 +149,7 @@ document.querySelectorAll('.build-form_radio-integration').forEach((el) => {
     const rect = el.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    tooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
+    // tooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
     tooltip.style.left = `${rect.left + rect.width / 2}px`;
   });
 
