@@ -19,6 +19,10 @@
 	border-color: #2B50ED;
 }
 
+.build-form_radio-integration:hover {
+	background-color: #2B50ED;
+}
+
 .build-form-submit {
 	transition: all 1s ease;
 	y: '0%';
