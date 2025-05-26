@@ -108,8 +108,8 @@ function buildFormInit() {
 function splideBuildInit() {
   const splide = new Splide('#splideBuild', {
     type: 'loop',
-    perPage: 9,
-    perMove: 9,
+    perPage: 5,
+    perMove: 5,
     gap: '8px',
     speed: 600,
     pagination: false,
