@@ -24,6 +24,10 @@
   color: white;
 }
 
+.build-form_radio-integration:hover .tooltip {
+	opacity: 1;
+}
+
 .build-form-submit {
 	transition: all 1s ease;
 	y: '0%';
@@ -34,3 +38,17 @@
 	y: '100%';
 	opacity: 0;
 }
+
+/* #tooltip {
+  position: absolute;
+  background-color: #2B50ED;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+} */

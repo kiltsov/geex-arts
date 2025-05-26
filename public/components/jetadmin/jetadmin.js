@@ -136,24 +136,24 @@ document.addEventListener('DOMContentLoaded', () => {
   splideBuildInit();
 });
 
-const tooltip = document.getElementById('tooltip');
+// const tooltip = document.getElementById('tooltip');
 
-document.querySelectorAll('.build-form_radio-integration').forEach((el) => {
-  el.addEventListener('mouseenter', () => {
-    const value = el.getAttribute('tooltip-data');
-    if (!value) return;
+// document.querySelectorAll('.build-form_radio-integration').forEach((el) => {
+//   el.addEventListener('mouseenter', () => {
+//     const value = el.getAttribute('tooltip-data');
+//     if (!value) return;
 
-    tooltip.textContent = value;
-    tooltip.style.display = 'block';
+//     tooltip.textContent = value;
+//     tooltip.style.display = 'block';
 
-    const rect = el.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     const rect = el.getBoundingClientRect();
+//     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // tooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
-    tooltip.style.left = `${rect.left + rect.width / 2}px`;
-  });
+//     // tooltip.style.top = `${rect.bottom + scrollTop + 8}px`;
+//     tooltip.style.left = `${rect.left + rect.width / 2}px`;
+//   });
 
-  el.addEventListener('mouseleave', () => {
-    tooltip.style.display = 'none';
-  });
-});
+//   el.addEventListener('mouseleave', () => {
+//     tooltip.style.display = 'none';
+//   });
+// });
