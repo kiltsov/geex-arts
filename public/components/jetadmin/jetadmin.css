@@ -19,19 +19,6 @@
   border-color: #2b50ed;
 }
 
-.build-form_radio-integration:hover {
-  background: linear-gradient(272.15deg, #2b50ed 1.56%, #607eff 99.75%);
-  color: white;
-}
-
-.tooltip {
-  opacity: 0;
-}
-
-.build-form_radio-integration:hover .tooltip {
-  opacity: 1;
-}
-
 .build-form-submit {
   transition: all 1s ease;
   y: '0%';
@@ -41,4 +28,11 @@
 .build-form-submit.is-disable {
   y: '100%';
   opacity: 0;
+}
+
+@media screen and (min-width: 991px) {
+  .build-form_radio-integration:hover {
+    background: linear-gradient(272.15deg, #2b50ed 1.56%, #607eff 99.75%);
+    color: white;
+  }
 }
