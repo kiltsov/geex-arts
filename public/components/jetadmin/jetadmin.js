@@ -13,7 +13,7 @@ function buildFormInit() {
     radioIntegration: document.querySelectorAll('.build-form__radio-input-integ'),
   };
 
-  const BASE_URL = 'https://app.jetadmin.io/builder/';
+  const BASE_URL = 'https://app.jetadmin.io/projects';
   const prompts = {
     promptAdmin: 'Admin panel on top of my data for managing content',
     radioPromptCRM: 'Custom CRM – Custom CRM on top of my data for managing leads and customer relationships',
@@ -33,25 +33,39 @@ function buildFormInit() {
 
   const updateHiddenInput = () => {
     if (!formConfig.hiddenInput) return;
-    
+
     const prompt = formConfig.input.value.trim();
-    if (selectedIntegration && prompt) {
-      const promptEncoded = encodeURIComponent(prompt);
-      formConfig.hiddenInput.value = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
-    } else {
+    if (!prompt) {
       formConfig.hiddenInput.value = '';
+      return;
     }
+
+    const promptEncoded = encodeURIComponent(prompt);
+    const resource = selectedIntegration
+      ? `&create_with_prompt_resource=${encodeURIComponent(selectedIntegration)}`
+      : '';
+    formConfig.hiddenInput.value = `?create_with_prompt=${promptEncoded}${resource}`;
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const prompt = formConfig.input.value.trim();
+    if (!prompt) return;
+
     const promptEncoded = encodeURIComponent(prompt);
-    const query = `?Integration=${selectedIntegration}&prompt=${promptEncoded}`;
+    const resource = selectedIntegration
+      ? `&create_with_prompt_resource=${encodeURIComponent(selectedIntegration)}`
+      : '';
+    const query = `?create_with_prompt=${promptEncoded}${resource}`;
 
     formConfig.hiddenInput.value = query;
-    console.log({ Integration: selectedIntegration, Prompt: prompt, FinalQuery: query });
-    
+
+    console.log({
+      Prompt: prompt,
+      Integration: selectedIntegration || '(none)',
+      FinalQuery: query,
+    });
+
     window.location.href = `${BASE_URL}${query}`;
   };
 
@@ -64,7 +78,7 @@ function buildFormInit() {
     // Управление классами активности
     if (container) {
       const activeClass = isPrompt ? '.build-form_radio.is-active' : '.build-form_radio-integration.is-active';
-      document.querySelectorAll(activeClass).forEach(el => el.classList.remove('is-active'));
+      document.querySelectorAll(activeClass).forEach((el) => el.classList.remove('is-active'));
       container.classList.add('is-active');
     }
 
@@ -88,12 +102,12 @@ function buildFormInit() {
       formConfig.radioPromptCRM,
       formConfig.radioPromptPortal,
       formConfig.radioPromptInventory,
-    ].forEach(radio => {
+    ].forEach((radio) => {
       radio?.addEventListener('change', handleRadioChange);
     });
 
     // Обработчики для радиокнопок интеграции
-    formConfig.radioIntegration.forEach(radio => {
+    formConfig.radioIntegration.forEach((radio) => {
       radio.addEventListener('change', handleRadioChange);
     });
 
@@ -136,11 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
   buildFormInit();
   splideBuildInit();
 
-    // Инициализация тултипов
+  // Инициализация тултипов
   tippy('[data-tippy-content]', {
     placement: 'bottom',
     arrow: true,
-    theme: 'light', // опционально
+    theme: 'light',
     delay: [0, 0],
     animation: 'fade',
   });
