@@ -120,8 +120,8 @@ function splideBuildInit() {
         perMove: 5,
       },
       480: {
-        perPage: 3,
-        perMove: 3,
+        perPage: 4,
+        perMove: 4,
       },
     },
   });
