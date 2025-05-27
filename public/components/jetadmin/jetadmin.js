@@ -123,7 +123,7 @@ function splideBuildInit() {
   const splide = new Splide('#splideBuild', {
     type: 'loop',
     perPage: 5,
-    perMove: 1,
+    perMove: 5,
     gap: '8px',
     speed: 600,
     pagination: false,
@@ -131,7 +131,7 @@ function splideBuildInit() {
     breakpoints: {
       768: {
         perPage: 5,
-        perMove: 1,
+        perMove: 5,
       },
       480: {
         gap: '3px',
