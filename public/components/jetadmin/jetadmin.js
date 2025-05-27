@@ -1,3 +1,7 @@
+/**
+ * Инициализация формы сборки проекта
+ * Оптимизированная версия с исправлением бага истории браузера
+ */
 function buildFormInit() {
   // Конфигурация элементов формы
   const formConfig = {
@@ -13,6 +17,12 @@ function buildFormInit() {
     radioIntegration: document.querySelectorAll('.build-form__radio-input-integ'),
   };
 
+  // Проверка наличия необходимых элементов
+  if (!formConfig.form || !formConfig.submitWrapper || !formConfig.input) {
+    console.error('Required form elements not found');
+    return;
+  }
+
   const BASE_URL = 'https://app.jetadmin.io/projects';
   const prompts = {
     promptAdmin: 'Admin panel on top of my data for managing content',
@@ -23,14 +33,14 @@ function buildFormInit() {
 
   let selectedPrompt = '';
   let selectedIntegration = '';
-  formConfig.submitWrapper.classList.add('is-disable');
 
-  // Общие функции
+  // Обновление состояния UI
   const updateUIState = () => {
     const hasInput = formConfig.input.value.trim().length > 0;
     formConfig.submitWrapper.classList.toggle('is-disable', !hasInput);
   };
 
+  // Обновление скрытого поля
   const updateHiddenInput = () => {
     if (!formConfig.hiddenInput) return;
 
@@ -47,6 +57,7 @@ function buildFormInit() {
     formConfig.hiddenInput.value = `?create_with_prompt=${promptEncoded}${resource}`;
   };
 
+  // Обработка отправки формы
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const prompt = formConfig.input.value.trim();
@@ -58,17 +69,46 @@ function buildFormInit() {
       : '';
     const query = `?create_with_prompt=${promptEncoded}${resource}`;
 
-    formConfig.hiddenInput.value = query;
-
-    console.log({
-      Prompt: prompt,
-      Integration: selectedIntegration || '(none)',
-      FinalQuery: query,
-    });
+    // Сохраняем состояние формы в sessionStorage перед редиректом
+    sessionStorage.setItem('buildFormState', JSON.stringify({
+      prompt,
+      selectedIntegration,
+    }));
 
     window.location.href = `${BASE_URL}${query}`;
   };
 
+  // Восстановление состояния формы при возврате назад
+  const restoreFormState = () => {
+    const savedState = sessionStorage.getItem('buildFormState');
+    if (savedState) {
+      try {
+        const { prompt, selectedIntegration: savedIntegration } = JSON.parse(savedState);
+        if (prompt) {
+          formConfig.input.value = prompt;
+          selectedIntegration = savedIntegration || '';
+          
+          // Обновляем выбранную интеграцию если она была
+          if (savedIntegration) {
+            const integrationRadio = document.querySelector(`.build-form__radio-input-integ[value="${savedIntegration}"]`);
+            if (integrationRadio) {
+              integrationRadio.checked = true;
+              integrationRadio.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          }
+          
+          updateUIState();
+          updateHiddenInput();
+        }
+      } catch (e) {
+        console.error('Error restoring form state:', e);
+      } finally {
+        sessionStorage.removeItem('buildFormState');
+      }
+    }
+  };
+
+  // Обработка изменения радиокнопок
   const handleRadioChange = (e) => {
     const radio = e.target;
     const isPrompt = radio.name === 'radioPrompts';
@@ -112,15 +152,28 @@ function buildFormInit() {
     });
 
     // Общие обработчики
-    formConfig.submit.addEventListener('click', handleFormSubmit);
+    formConfig.form.addEventListener('submit', handleFormSubmit);
     formConfig.input.addEventListener('input', updateUIState);
   };
 
-  initEventListeners();
+  // Инициализация
+  const init = () => {
+    restoreFormState();
+    initEventListeners();
+    updateUIState(); // Проверяем начальное состояние
+  };
+
+  init();
 }
 
+/**
+ * Инициализация слайдера Splide
+ */
 function splideBuildInit() {
-  const splide = new Splide('#splideBuild', {
+  const splideElement = document.getElementById('splideBuild');
+  if (!splideElement) return;
+
+  const splide = new Splide(splideElement, {
     type: 'loop',
     perPage: 5,
     perMove: 5,
@@ -143,32 +196,44 @@ function splideBuildInit() {
 
   splide.mount();
 
-  document.querySelector('[build-form=next]')?.addEventListener('click', () => splide.go('>'));
+  const nextButton = document.querySelector('[build-form=next]');
+  nextButton?.addEventListener('click', () => splide.go('>'));
 }
 
-// Установить .is-active на первый элемент
-const firstIntegration = document.querySelector('.build-form__data-wrapper .build-form_radio-integration');
-if (firstIntegration) {
-  firstIntegration.classList.add('is-active');
+/**
+ * Инициализация первой интеграции как активной
+ */
+function initFirstIntegration() {
+  const firstIntegration = document.querySelector('.build-form__data-wrapper .build-form_radio-integration');
+  if (!firstIntegration) return;
 
-  // Активируем радио внутри
+  firstIntegration.classList.add('is-active');
   const input = firstIntegration.querySelector('input[type="radio"]');
   if (input) {
     input.checked = true;
-    input.dispatchEvent(new Event('change', { bubbles: true })); // чтобы сработал обработчик
+    input.dispatchEvent(new Event('change', { bubbles: true }));
   }
 }
 
+/**
+ * Инициализация тултипов
+ */
+function initTooltips() {
+  if (typeof tippy === 'function') {
+    tippy('[data-tippy-content]', {
+      placement: 'bottom',
+      arrow: true,
+      theme: 'light',
+      delay: [0, 0],
+      animation: 'fade',
+    });
+  }
+}
+
+// Основная инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {
+  initFirstIntegration();
   buildFormInit();
   splideBuildInit();
-
-  // Инициализация тултипов
-  tippy('[data-tippy-content]', {
-    placement: 'bottom',
-    arrow: true,
-    theme: 'light',
-    delay: [0, 0],
-    animation: 'fade',
-  });
+  initTooltips();
 });
