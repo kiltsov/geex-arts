@@ -5,6 +5,16 @@ function videoPlayOnHover() {
     const video = card.querySelector('.video-player');
     if (!video) return;
 
+    // Устанавливаем постер
+    const source = video.querySelector('source');
+    if (source && source.src) {
+      const posterUrl = source.src
+        .replace('/upload/', '/upload/so_1/')
+        .replace('.mp4', '.jpg');
+      video.setAttribute('poster', posterUrl);
+    }
+
+    // Ховер-анимация
     card.addEventListener('mouseenter', async () => {
       try {
         await video.play();
