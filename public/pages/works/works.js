@@ -114,7 +114,7 @@ pageTransitionAnimation(() => {
   // worksPageHeroModelAnimation();
   // headerMoveIntoViewAnimation();
   headerScrollAnimation();
-}, 0.5);
+}, 1);
 
 window.addEventListener('load', function () {});
 
