@@ -10,7 +10,7 @@ function videoPlayOnHover() {
     if (source && source.src) {
       const posterUrl = source.src
         .replace('/upload/', '/upload/so_1/')
-        .replace('.mp4', '.jpg');
+        .replace(/\.mp4(?:\?.*)?$/, '.jpg');
       video.setAttribute('poster', posterUrl);
     }
 
