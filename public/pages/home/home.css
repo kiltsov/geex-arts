@@ -206,32 +206,32 @@
     }
 
     .works__item:nth-child(6n+1) .work-card__video {
-        height: 21.125rem;
+        /* height: 21.125rem; */
         aspect-ratio: 4/3;
     }
 
     .works__item:nth-child(6n+2) .work-card__video {
-        height: 31.25rem;
+        /* height: 31.25rem; */
         aspect-ratio: 4/3;
     }
 
     .works__item:nth-child(6n+3) .work-card__video {
-        height: 17.5rem;
+        /* height: 17.5rem; */
         aspect-ratio: 4/3;
     }
 
     .works__item:nth-child(6n+4) .work-card__video {
-        height: 17.5rem;
+        /* height: 17.5rem; */
         aspect-ratio: 4/3;
     }
 
     .works__item:nth-child(6n+5) .work-card__video {
-        height: 17.5rem;
+        /* height: 17.5rem; */
         aspect-ratio: 4/3;
     }
 
     .works__item:nth-child(6n+6) .work-card__video {
-        height: 40.5rem;
+        /* height: 40.5rem; */
         aspect-ratio: 4/3;
     }
 }
