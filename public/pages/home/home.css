@@ -183,7 +183,6 @@
 @media only screen and (min-width: 992px) {
     .works__list .works__item:nth-child(6n+1) {
         width: 28.1875rem;
-        aspect-ratio: 4/3;
     }
 
     .works__list .works__item:nth-child(6n+2) {
