@@ -1,0 +1,100 @@
+/*****************************************************************/
+/********************** Animations *******************************/
+/*****************************************************************/
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverceClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/********************** Works Grid *******************************/
+@media only screen and (min-width: 992px) {
+    .works__list .works__item:nth-child(6n+1) {
+        width: 28.1875rem;
+    }
+
+    .works__list .works__item:nth-child(6n+2) {
+        width: 50.25rem;
+    }
+
+    .works__list .works__item:nth-child(6n+3) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+4) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+5) {
+        width: 28.125rem;
+    }
+
+    .works__list .works__item:nth-child(6n+6) {
+        width: 64.8125rem;
+    }
+}
+
+/********************** Works Hero model *******************************/
+
+#worksHeroModel_1 {
+    animation: rotateClockwise 10s linear infinite;
+}
+#worksHeroModel_2 {
+    animation: rotateReverceClockwise 12s linear infinite;
+}
+#worksHeroModel_3 {
+    animation: rotateClockwise 17s linear infinite;
+}
+#worksHeroModel_4 {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+/********************** CTA *******************************/
+@keyframes scrollCtaElement {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+.cta-model__marquee-content {
+    animation: scrollCtaElement 20s linear infinite;
+}
+
+/********************** Filters *******************************/
+.work-filter-radio {
+    color: #939393;
+}
+
+.work-filter-radio.is-active {
+    color: black;
+}
