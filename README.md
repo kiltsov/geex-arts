@@ -1,16 +1,16 @@
 # Geex Arts
 
-Фронтенд-проект для сайта Geex Arts.
+Frontend project for the website https://www.geex-arts.com/
 
-## Стек
+## Stack
 
 - HTML / CSS / JavaScript (GSAP)
-- [Vercel](https://vercel.com/) — хостинг и деплой
+- Vercel — hosting and deployment
 - Git / GitHub
 
-## еплой на продакшен
+## Production deployment
 
-Продакшен деплой осуществляется через Vercel CLI:
+To deploy to production using Vercel CLI:
 
 ```bash
 vercel --prod
